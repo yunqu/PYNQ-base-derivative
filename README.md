@@ -1,3 +1,5 @@
+# PYNQ Base Derivative Overlays
+
 This repository makes it easier to generate derivatives from the base overlay 
 in the PYNQ framework. The basic flow works like the following:
 
@@ -9,13 +11,13 @@ in the PYNQ framework. The basic flow works like the following:
 6. Generate DSA related files.
 
 The make flow provided in this repository has to be run under Linux. 
-The entire flow is automated.
+The entire flow is **automated**.
 
 ## Quick Start
 
 To use the make flow, the following steps have to be followed:
 
-1. Make sure correct `settings.csh/sh` files are sourced. 
+1. Make sure correct Vivado settings files are sourced. 
 2. Go inside your local PYNQ repository. If not downloaded yet, run
 
 	```shell
@@ -27,7 +29,7 @@ To use the make flow, the following steps have to be followed:
 3. Clone this repository and copy the overlay folder into the local PYNQ repository.
 
     ```shell
-	git clone https://github.com/yunqu/PYNQ-base-derivative.git PYNQ-base-derivative
+	git clone https://github.com/yunqu/PYNQ-base-derivative.git
 	cp -rf PYNQ-base-derivative/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
     ```
 
