@@ -30,8 +30,8 @@ To use the make flow, the following steps have to be followed:
 3. Clone this repository and copy the overlay folder into the local PYNQ repository.
 
     ```shell
-	git clone https://github.com/yunqu/PYNQ-base-derivative.git
-    cp -rf PYNQ-base-derivative/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
+	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git
+    cp -rf PYNQ-derivative-overlays/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
     ```
 
 4. Then you are ready to run the make process.
