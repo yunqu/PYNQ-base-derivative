@@ -1,10 +1,11 @@
-# PYNQ Base Derivative Overlays
+# PYNQ Derivative Overlays
 
-This repository makes it easier to generate derivatives from the base overlay 
-in the PYNQ framework. The basic flow works like the following:
+This repository makes it easier to generate derivatives from the overlays 
+in the PYNQ framework. Taking the `base` overlay as a starting point,
+the basic flow works like the following:
 
-1. Copy the base project from the PYNQ repository. If the base project has not been built yet, build it.
-2. Open the block design, strip down the base overlay by removing many components.
+1. Copy the base overlay project from the PYNQ repository. If the project has not been built yet, build it.
+2. Open the block design, strip down the original overlay by removing many components.
 3. Write the updated block design into a new TCL file.
 4. Regenerate the constraint file by removing unused IO.
 5. Build the new project using the new TCL file, along with the new constraint file.
