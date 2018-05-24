@@ -30,15 +30,38 @@ To use the make flow, the following steps have to be followed:
 
     ```shell
 	git clone https://github.com/yunqu/PYNQ-base-derivative.git
-	cp -rf PYNQ-base-derivative/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
+    cp -rf PYNQ-base-derivative/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
     ```
 
 4. Then you are ready to run the make process.
 
 	```shell
-	cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/<OVERLAY_NAME>
+    cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/<OVERLAY_NAME>
 	make
 	```
 
 	It may take a few hours for the make process to finish. Once it is done,
 	you will have all the corresponding overlay files.
+
+## Make Options
+
+There are a few options that users can choose. For example, if users want to
+make the bare overlay for a board equipped with `xc7z010clg400-1`, users can run
+
+```shell
+make device=xc7z010clg400-1
+```
+
+## Supported Overlays and Boards
+
+* The `hdmi` overlay only has the video pipeline from the base overlay.
+* The `bare` overlay does not even have the video pipeline compared to the `hdmi` overlay.
+
+| Overlays        | Boards           | Devices          |
+| --------------- |:----------------:| ----------------:|
+| hdmi            | Pynq-Z1          | xc7z020clg400-1  |
+| hdmi            | Pynq-Z2          | xc7z020clg400-1  |
+| hdmi            | Arty-Z7-10       | xc7z010clg400-1  |
+| bare            | Pynq-Z1          | xc7z020clg400-1  |
+| bare            | Pynq-Z2          | xc7z020clg400-1  |
+| bare            | Arty-Z7-10       | xc7z010clg400-1  |
