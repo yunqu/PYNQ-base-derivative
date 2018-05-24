@@ -1,6 +1,7 @@
 overlay_name := hdmi
 design_name := system
 base_path := ../base
+device := xc7z020clg400-1
 
 all: base tcl xdc bit dsa
 	@echo
@@ -33,7 +34,8 @@ xdc:
 	./vivado/constraints/$(overlay_name).xdc; fi
 
 bit:
-	@sed -i "s/project_1 myproj/$(overlay_name) $(overlay_name)/" \
+	@sed -i "s/\(create_project \)\(.*\)\( -part \)\(.*\)"\
+	"/\1$(overlay_name) $(overlay_name)\3$(device)/" \
 	$(overlay_name).tcl; \
 	sed -i '/# CHANGE DESIGN NAME HERE/i \
 	set_property  ip_repo_paths ../../ip [current_project]\
