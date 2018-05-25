@@ -34,7 +34,13 @@ To use the make flow, the following steps have to be followed:
     cp -rf PYNQ-derivative-overlays/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
     ```
 
-4. Then you are ready to run the make process.
+4. (optional) If you also want to generate the corresponding SDx platform:
+	```shell
+    cp -rf PYNQ-derivative-overlays/sdx_platform <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
+    ```
+    Otherwise the make process is able to skip this step automatically.
+
+5. Then you are ready to run the make process.
 
 	```shell
     cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/<OVERLAY_NAME>
