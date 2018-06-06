@@ -31,18 +31,13 @@ To use the make flow, the following steps have to be followed:
 
     ```shell
 	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git
-    cp -rf PYNQ-derivative-overlays/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/
+    cp -rf PYNQ-derivative-overlays/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
     ```
-    Note that the starting point of the derivatives is a board folder, e.g., Pynq-Z1. 
-    Users can refer to the table listed at the end of this README.
+    Note that here we assume the starting point of the derivatives is `Pynq-Z1`.
+    To change the starting point, users can refer to the table listed at the end of 
+    this README.
 
-4. (optional) If you also want to generate the corresponding SDx platform:
-	```shell
-    cp -rf PYNQ-derivative-overlays/sdx_platform <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
-    ```
-    Otherwise the make process is able to skip this step automatically.
-
-5. Then you are ready to run the make process.
+4. Then you are ready to run the make process.
 
 	```shell
     cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/<OVERLAY_NAME>
@@ -50,21 +45,26 @@ To use the make flow, the following steps have to be followed:
 	```
 
 	It may take a few hours for the make process to finish. Once it is done,
-	you will have all the corresponding overlay files.
+	you will have all the corresponding overlay files. Most importantly,
+    you will have the `<OVERLAY_NAME>.dsa` file ready.
+    
+    There are a few options that users can choose. For example, if users want 
+    to make the bare overlay for a board equipped with `xc7z010clg400-1`, users can run
+    
+    ```shell
+    make device=xc7z010clg400-1
+    ```
 
-## Make Options
-
-There are a few options that users can choose. For example, if users want to
-make the bare overlay for a board equipped with `xc7z010clg400-1`, users can run
-
-```shell
-make device=xc7z010clg400-1
-```
+5. (optional) If you also want to generate the corresponding SDx platform for a specific board:
+	```shell
+    cp -rf PYNQ-derivative-overlays/sdx_platform <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
+    make
+    ```
+    Additional options can be found using `make help`. Basically users are allowed
+    to change the overlay name, the root of the overlay folder, 
+    the processor name, etc.
 
 ## Supported Overlays and Boards
-
-The `hdmi` overlay only has the video pipeline from the base overlay.
-The `bare` overlay does not even have the video pipeline compared to the `hdmi` overlay.
 
 Although the starting point of the make process can be the same board, 
 the derivative overlays finally can target multiple boards.
