@@ -1,6 +1,6 @@
 the_image:
 {
-  [bootloader]<boot/zynq_fsbl.elf>
+  [bootloader]<zynq_fsbl.elf>
   <bitstream>
-  <boot/u-boot.elf>
+  <u-boot.elf>
 }

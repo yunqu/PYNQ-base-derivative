@@ -9,8 +9,8 @@ if { $argc != 3 } {
             -desc "${overlay_name} platform for PYNQ supported board" \
             -hw ${board}/hw/${overlay_name}.dsa -out .build -prebuilt
         system -name linux -display-name "Linux" \
-            -boot ${board}/sw/linux/boot \
-            -readme ${board}/sw/linux/generic.readme
+            -boot ${board}/sw/boot \
+            -readme ${board}/sw/generic.readme
         domain -name linux -proc ${proc} -os linux \
             -image ${board}/sw/linux/image 
         boot -bif ${board}/sw/linux/linux.bif
