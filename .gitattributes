@@ -32,3 +32,4 @@
 *.bit binary -crlf
 *.a binary -crlf
 uImage binary -crlf
+*.ub binary -crlf

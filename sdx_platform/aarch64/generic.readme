@@ -1,5 +1,0 @@
--= SD card boot image =-
-
-Platform: <overlay>
-Application: <elf>
-Architecture: aarch64
