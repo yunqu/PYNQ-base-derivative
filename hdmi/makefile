@@ -2,9 +2,8 @@ overlay_name := hdmi
 design_name := system
 base_path := ../base
 device := xc7z020clg400-1
-arch := arm
 
-all: base tcl xdc bit dsa sdx_platform
+all: base tcl xdc bit dsa
 	@echo
 	@tput setaf 2 ; echo "Built $(overlay_name) successfully!"; tput sgr0;
 	@echo
@@ -49,16 +48,6 @@ dsa:
 	vivado -mode batch -source build_$(overlay_name)_dsa.tcl -notrace
 	unzip -qo $(overlay_name).dsa -d .dsa
 	cp -rf .dsa/$(design_name).hwh ./$(overlay_name).hwh
-
-sdx_platform:
-	@if [ -d "../sdx_platform" ]; then \
-		pushd ../sdx_platform; \
-		echo "Building SDx platform..."; \
-		make OVERLAY=$(overlay_name) ARCH=$(arch); \
-		popd; \
-	else \
-		echo "Skipping SDx platform..."; \
-	fi
 
 clean:
 	rm -rf $(overlay_name) *.jou *.log
