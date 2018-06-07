@@ -1,4 +1,4 @@
-OL_PATH := ..
+DSA_PATH := ../hdmi/hdmi.dsa
 OVERLAY := hdmi
 BOARD := Pynq-Z1
 PROC := ps7_cortexa9_0
@@ -7,7 +7,7 @@ all: clean help platform
 
 platform:
 	@mkdir ./$(BOARD)/hw
-	@cp -rf $(OL_PATH)/$(OVERLAY)/$(OVERLAY).dsa ./$(BOARD)/hw
+	@cp -rf $(DSA_PATH) ./$(BOARD)/hw/$(OVERLAY).dsa
 	xsct -sdx build_pfm.tcl $(OVERLAY) $(BOARD) $(PROC)
 	@cp -rf .build/$(OVERLAY)/export/$(OVERLAY) $(BOARD)-$(OVERLAY)
 	@echo "Successfully finished building SDx platform."
@@ -18,9 +18,9 @@ help:
 	@echo
 	@echo "arguments:"
 	@echo "----------"
-	@echo "OL_PATH:    path to the root of the overlay folder"
-	@echo "            e.g., /home/usr/boards/Pynq-Z1"
-	@echo "OVERLAY:    name of the overlay or dsa"
+	@echo "DSA_PATH:   path to the dsa file"
+	@echo "            e.g., /home/usr/boards/Pynq-Z1/hdmi/hdmi.dsa"
+	@echo "OVERLAY:    name of the overlay (must be same as the platform)"
 	@echo "            e.g., hdmi, bare"
 	@echo "BOARD:      name of the board"
 	@echo "            e.g., Pynq-Z1, Pynq-Z2"
@@ -29,7 +29,7 @@ help:
 	@echo
 	@echo "current configuration:"
 	@echo "----------------------"
-	@echo "make OL_PATH=$(OL_PATH) OVERLAY=$(OVERLAY) BOARD=$(BOARD) PROC=$(PROC)"
+	@echo "make DSA_PATH=$(DSA_PATH) OVERLAY=$(OVERLAY) BOARD=$(BOARD) PROC=$(PROC)"
 	@echo
 
 clean:
