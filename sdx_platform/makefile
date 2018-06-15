@@ -7,11 +7,12 @@ all: clean help platform
 
 platform:
 	@mkdir ./$(BOARD)/hw
+	@mkdir ./$(BOARD)/platforms
 	@cp -rf $(DSA_PATH) ./$(BOARD)/hw/$(OVERLAY).dsa
 	xsct -sdx build_pfm.tcl $(OVERLAY) $(BOARD) $(PROC)
-	@cp -rf .build/$(OVERLAY)/export/$(OVERLAY) $(BOARD)-$(OVERLAY)
+	@cp -rf .build/$(OVERLAY)/export/$(OVERLAY) $(BOARD)/platforms/$(OVERLAY)
 	@echo "Successfully finished building SDx platform."
-	@echo "SDx platform stored in the folder $(BOARD)-$(OVERLAY)."
+	@echo "SDx platform stored in the folder $(BOARD)/platforms/$(OVERLAY)."
 
 help:
 	@echo "usage: make [target]"
@@ -32,7 +33,10 @@ help:
 	@echo "make DSA_PATH=$(DSA_PATH) OVERLAY=$(OVERLAY) BOARD=$(BOARD) PROC=$(PROC)"
 	@echo
 
+cleanall: clean
+	@rm -rf $(BOARD)/platforms
+
 clean:
 	@rm -rf .build
-	@rm -rf $(BOARD)-$(OVERLAY)
+	@rm -rf $(BOARD)/platforms/$(OVERLAY)
 	@rm -rf ./$(BOARD)/hw
