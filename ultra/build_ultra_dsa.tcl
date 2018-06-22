@@ -15,6 +15,9 @@ set_property PFM.CLOCK { \
     pl_clk3 {id "3" is_default "false" proc_sys_reset "proc_sys_reset_3" } \
     } [get_bd_cells /ps_e_0]
 set_property PFM.AXI_PORT { \
+    M_AXI_HPM0_FPD {memport "M_AXI_GP"} \
+    M_AXI_HPM1_FPD {memport "M_AXI_GP"} \
+    M_AXI_HPM0_LPD {memport "M_AXI_GP"} \
     S_AXI_ACP_FPD {memport "S_AXI_ACP"} \
     S_AXI_HPC0_FPD {memport "S_AXI_HPC"} \
     S_AXI_HPC1_FPD {memport "S_AXI_HPC"} \
