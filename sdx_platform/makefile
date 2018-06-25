@@ -3,7 +3,6 @@ OVERLAY := hdmi
 BOARD := Pynq-Z1
 PROC := ps7_cortexa9_0
 
-# Test SDSoC Platform
 BUILD_DIR := test/build
 TEST_DIR := $(BUILD_DIR)/$(BOARD)-$(OVERLAY)
 HW_FLAGS = -sds-hw adder adder.cpp -clkid 0 -sds-end
@@ -15,19 +14,30 @@ CPP := sds++ $(SDSFLAGS)
 OBJECTS = $(CURDIR)/$(TEST_DIR)/main.o $(CURDIR)/$(TEST_DIR)/adder.o
 LOGFILE = $(CURDIR)/$(TEST_DIR)/_sds/reports/sds.log
 
-all: clean help platform
+all: clean help platform test
 
 platform:
 	@mkdir ./$(BOARD)/hw
 	@mkdir -p ./$(BOARD)/platforms
 	@cp -rf $(DSA_PATH) ./$(BOARD)/hw/$(OVERLAY).dsa
 	xsct -sdx build_pfm.tcl $(OVERLAY) $(BOARD) $(PROC)
-	@cp -rf .build/$(OVERLAY)/export/$(OVERLAY) $(BOARD)/platforms/$(OVERLAY)
+	@cp -rf .build/$(OVERLAY)/export/$(OVERLAY) \
+	$(BOARD)/platforms/$(OVERLAY)
 	@echo "Successfully finished building SDx platform."
-	@echo "SDx platform stored in the folder $(BOARD)/platforms/$(OVERLAY)."
+	@echo "SDx platform stored in $(BOARD)/platforms/$(OVERLAY)."
 
 help:
 	@echo "usage: make [target]"
+	@echo
+	@echo "options:"
+	@echo "--------"
+	@echo "help:       show help message."
+	@echo "all:        make the SDx platform, and verify it."
+	@echo "platform:   make the SDx platform based on the input arguments."
+	@echo "test:       do a simple test after a given platform is made."
+	@echo "cleantest:  clean the test folder."
+	@echo "clean:      clean the test and the SDx platform for the overlay."
+	@echo "cleanall:   clean all the platforms for a fresh start."
 	@echo
 	@echo "arguments:"
 	@echo "----------"
@@ -42,7 +52,10 @@ help:
 	@echo
 	@echo "current configuration:"
 	@echo "----------------------"
-	@echo "make DSA_PATH=$(DSA_PATH) OVERLAY=$(OVERLAY) BOARD=$(BOARD) PROC=$(PROC)"
+	@echo "make DSA_PATH=$(DSA_PATH)"
+	@echo "     OVERLAY=$(OVERLAY)"
+	@echo "     BOARD=$(BOARD)"
+	@echo "     PROC=$(PROC)"
 	@echo
 
 test: cleantest $(OBJECTS)
@@ -51,9 +64,12 @@ test: cleantest $(OBJECTS)
 	@echo 'Trigerring: SDS++ Linker'
 	cd $(TEST_DIR) ; $(CPP) -o adder.elf $(OBJECTS)
 	@echo 'SDx Completed Building Target: $@'
-	@echo ' '
-	@tput setaf 2; grep "ERROR" $(LOGFILE) || echo "PASS: Platform successfully tested"; tput sgr0;
-	@echo ' '
+	@echo
+	@tput setaf 2; \
+	grep "ERROR: " $(LOGFILE) || \
+	echo "PASS: Platform successfully tested."; \
+	tput sgr0;
+	@echo
 
 $(CURDIR)/$(TEST_DIR)/%.o: $(CURDIR)/test/%.cpp
 	@echo 'Building file: $<'
@@ -62,14 +78,15 @@ $(CURDIR)/$(TEST_DIR)/%.o: $(CURDIR)/test/%.cpp
 	cd $(TEST_DIR) ; $(CPP) $(CFLAGS) -o $(LFLAGS) $(HW_FLAGS)
 	@echo 'Finished building: $<'
 	@echo ' '
-	
-cleanall: clean cleantest
-	@rm -rf $(BOARD)/platforms
 
 cleantest:
-	@rm -rf $(TEST_DIR)
-	
-clean:
+	@rm -rf $(BUILD_DIR)
+
+clean: cleantest
 	@rm -rf .build
 	@rm -rf $(BOARD)/platforms/$(OVERLAY)
 	@rm -rf ./$(BOARD)/hw
+
+cleanall: clean
+	@rm -rf $(BOARD)/platforms
+
