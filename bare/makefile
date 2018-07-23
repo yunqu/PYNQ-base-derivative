@@ -1,37 +1,18 @@
 overlay_name := bare
-design_name := system
-base_path := ../base
+design_name := bare
 device := xc7z020clg400-1
 
-all: base tcl bit dsa
+all: bit dsa
 	@echo
 	@tput setaf 2 ; echo "Built $(overlay_name) successfully!"; tput sgr0;
 	@echo
-
-base:
-	@if [ ! -d "./base" ]; then \
-		pushd $(base_path); \
-		if [ ! -d "./base" ]; then \
-			echo "Rebuilding base..."; make; \
-		else \
-			echo "Skipping base..."; \
-		fi; \
-		popd; \
-		cp -rf $(base_path)/base base; \
-	fi
-
-tcl:
-	vivado -mode batch -source \
-	build_$(overlay_name)_$(design_name).tcl -notrace
 
 bit:
 	@sed -i "s/\(create_project \)\(.*\)\( -part \)\(.*\)"\
 	"/\1$(overlay_name) $(overlay_name)\3$(device)/" \
 	$(overlay_name).tcl; \
-	sed -i '/# CHANGE DESIGN NAME HERE/i \
-	set_property  ip_repo_paths ../../ip [current_project]\
-	update_ip_catalog\
-	' $(overlay_name).tcl; \
+	sed -i 's/^set design_name \(.*\)/set design_name $(design_name)/g' \
+	$(overlay_name).tcl; \
 	vivado -mode batch -source \
 	$(overlay_name).tcl build_bitstream.tcl -notrace
 
@@ -42,5 +23,4 @@ dsa:
 
 clean:
 	rm -rf $(overlay_name) *.jou *.log
-	rm -rf base
 	rm -rf .dsa

@@ -1,5 +1,5 @@
 set overlay_name "ultra"
-set design_name "system"
+set design_name "ultra"
 
 # open project and block design
 open_project -quiet ./${overlay_name}/${overlay_name}.xpr
