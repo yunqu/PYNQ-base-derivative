@@ -69,12 +69,16 @@ To use the make flow, the following steps have to be followed:
 Although the starting point of the make process can be the same board, 
 the derivative overlays finally can target multiple boards.
 
-| Overlays        | Boards           | Devices              | Starting Point |
-|:--------------- |:-----------------|:---------------------|----------------|
-| hdmi            | Pynq-Z1          | xc7z020clg400-1      | Pynq-Z1        |
-| hdmi            | Pynq-Z2          | xc7z020clg400-1      | Pynq-Z1        |
-| hdmi            | Arty-Z7-10       | xc7z010clg400-1      | Pynq-Z1        |
-| bare            | Pynq-Z1          | xc7z020clg400-1      | Pynq-Z1        |
-| bare            | Pynq-Z2          | xc7z020clg400-1      | Pynq-Z1        |
-| bare            | Arty-Z7-10       | xc7z010clg400-1      | Pynq-Z1        |
-| ultra           | Ultra96          | xczu3eg-sbva484-1-i  | Ultra96        |
+The parent overlay is the original overlay that the derivative overlays
+depend on. If there is no parent overlay, you can build the corresponding 
+derivative overlay anywhere (not necessarily from the starting point folder).
+
+| Overlays        | Boards           | Devices              | Starting Point | Parent Overlay |
+|:--------------- |:-----------------|:---------------------|----------------|----------------|
+| hdmi            | Pynq-Z1          | xc7z020clg400-1      | Pynq-Z1        | base           |
+| hdmi            | Pynq-Z2          | xc7z020clg400-1      | Pynq-Z1        | base           |
+| hdmi            | Arty-Z7-10       | xc7z010clg400-1      | Pynq-Z1        | base           |
+| bare            | Pynq-Z1          | xc7z020clg400-1      | Pynq-Z1        | -              |
+| bare            | Pynq-Z2          | xc7z020clg400-1      | Pynq-Z1        | -              |
+| bare            | Arty-Z7-10       | xc7z010clg400-1      | Pynq-Z1        | -              |
+| ultra           | Ultra96          | xczu3eg-sbva484-1-i  | Ultra96        | -              |
