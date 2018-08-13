@@ -58,6 +58,7 @@ To use the make flow, the following steps have to be followed:
 5. (optional) If you also want to generate the corresponding SDx platform for a specific board:
 	```shell
     cp -rf PYNQ-derivative-overlays/sdx_platform <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
+    cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/sdx_platform
     make
     ```
     Additional options can be found using `make help`. Basically users are allowed
