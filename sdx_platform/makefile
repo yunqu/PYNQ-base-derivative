@@ -83,10 +83,12 @@ cleantest:
 	@rm -rf $(BUILD_DIR)
 
 clean: cleantest
-	@rm -rf .build
-	@rm -rf $(BOARD)/platforms/$(OVERLAY)
-	@rm -rf ./$(BOARD)/hw
+	rm -rf .build
+	rm -rf $(BOARD)/platforms/$(OVERLAY)
+	rm -rf ./$(BOARD)/hw
 
 cleanall: clean
-	@rm -rf $(BOARD)/platforms
+	rm -rf ./*/platforms
+	rm -rf ./*/hw
+
 
