@@ -1,9 +1,10 @@
 set overlay_name "hdmi"
-set design_name "system"
+set parent_overlay_name "base"
+set parent_design_name "base"
 
 # open block design
-open_project {./base/base.xpr}
-open_bd_design {./base/base.srcs/sources_1/bd/system/system.bd}
+open_project ./${parent_overlay_name}/${parent_overlay_name}.xpr
+open_bd_design ./${parent_overlay_name}/${parent_overlay_name}.srcs/sources_1/bd/${parent_design_name}/${parent_design_name}.bd
 
 # remove audio block
 delete_bd_objs [get_bd_nets audio_path_sel_Dout] [get_bd_nets pdm_m_data_i_1] [get_bd_nets audio_direct_0_audio_out] [get_bd_nets audio_direct_0_audio_shutdown] [get_bd_nets audio_direct_0_pdm_clk] [get_bd_intf_nets ps7_0_axi_periph_M07_AXI] [get_bd_cells audio_direct_0]

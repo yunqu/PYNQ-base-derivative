@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 23 13:44:17 2018" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 12 16:57:11 2018" VIVADOVERSION="2018.2">
 
-  <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
+  <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="hdmi" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
     <PORT DIR="O" LEFT="0" NAME="hdmi_in_hpd" RIGHT="0" SIGIS="undef" SIGNAME="video_hdmi_in_frontend_axi_gpio_hdmiin_gpio_io_o">
@@ -1079,7 +1079,7 @@
         <PARAMETER NAME="PCW_SMC_CYCLE_T6" VALUE="NA"/>
         <PARAMETER NAME="PCW_PACKAGE_NAME" VALUE="clg400"/>
         <PARAMETER NAME="PCW_PLL_BYPASSMODE_ENABLE" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_ps7_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_ps7_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0x00000000"/>
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x1FFFFFFF"/>
@@ -1701,7 +1701,7 @@
           <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="16"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="4"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="4"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -1773,7 +1773,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="16"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -2166,7 +2166,7 @@
         <PARAMETER NAME="S13_ARB_PRIORITY" VALUE="0"/>
         <PARAMETER NAME="S14_ARB_PRIORITY" VALUE="0"/>
         <PARAMETER NAME="S15_ARB_PRIORITY" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_ps7_0_axi_periph_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_ps7_0_axi_periph_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -2808,7 +2808,7 @@
         <PARAMETER NAME="C_NUM_PERP_RST" VALUE="1"/>
         <PARAMETER NAME="C_NUM_INTERCONNECT_ARESETN" VALUE="1"/>
         <PARAMETER NAME="C_NUM_PERP_ARESETN" VALUE="1"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_rst_ps7_0_fclk0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_rst_ps7_0_fclk0_0"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -2875,7 +2875,7 @@
         <PARAMETER NAME="C_NUM_PERP_RST" VALUE="1"/>
         <PARAMETER NAME="C_NUM_INTERCONNECT_ARESETN" VALUE="1"/>
         <PARAMETER NAME="C_NUM_PERP_ARESETN" VALUE="1"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_rst_ps7_0_fclk1_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_rst_ps7_0_fclk1_0"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -2940,7 +2940,7 @@
         <PARAMETER NAME="C_NUM_PERP_RST" VALUE="1"/>
         <PARAMETER NAME="C_NUM_INTERCONNECT_ARESETN" VALUE="1"/>
         <PARAMETER NAME="C_NUM_PERP_ARESETN" VALUE="1"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_rst_ps7_0_fclk2_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_rst_ps7_0_fclk2_0"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -2981,7 +2981,7 @@
         <PARAMETER NAME="C_NUM_PERP_RST" VALUE="1"/>
         <PARAMETER NAME="C_NUM_INTERCONNECT_ARESETN" VALUE="1"/>
         <PARAMETER NAME="C_NUM_PERP_ARESETN" VALUE="1"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_rst_ps7_0_fclk3_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_rst_ps7_0_fclk3_0"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -3231,7 +3231,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 0 with highest priority.&#xA;"/>
@@ -3251,7 +3251,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 1 with highest priority.&#xA;"/>
@@ -3271,7 +3271,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 2 with highest priority.&#xA;"/>
@@ -3291,7 +3291,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 3 with highest priority.&#xA;"/>
@@ -3311,7 +3311,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 4 with highest priority.&#xA;"/>
@@ -3331,7 +3331,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 5 with highest priority.&#xA;"/>
@@ -3351,7 +3351,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 6 with highest priority.&#xA;"/>
@@ -3371,7 +3371,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 7 with highest priority.&#xA;"/>
@@ -3391,7 +3391,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 8 with highest priority.&#xA;"/>
@@ -3411,7 +3411,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 9 with highest priority.&#xA;"/>
@@ -3431,7 +3431,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 10 with highest priority.&#xA;"/>
@@ -3451,7 +3451,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 11 with highest priority.&#xA;"/>
@@ -3471,7 +3471,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 12 with highest priority.&#xA;"/>
@@ -3491,7 +3491,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 13 with highest priority.&#xA;"/>
@@ -3511,7 +3511,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 14 with highest priority.&#xA;"/>
@@ -3531,7 +3531,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 15 with highest priority.&#xA;"/>
@@ -3551,7 +3551,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 16 with highest priority.&#xA;"/>
@@ -3571,7 +3571,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 17 with highest priority.&#xA;"/>
@@ -3591,7 +3591,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 18 with highest priority.&#xA;"/>
@@ -3611,7 +3611,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 19 with highest priority.&#xA;"/>
@@ -3631,7 +3631,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 20 with highest priority.&#xA;"/>
@@ -3651,7 +3651,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 21 with highest priority.&#xA;"/>
@@ -3671,7 +3671,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 22 with highest priority.&#xA;"/>
@@ -3691,7 +3691,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 23 with highest priority.&#xA;"/>
@@ -3711,7 +3711,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 24 with highest priority.&#xA;"/>
@@ -3731,7 +3731,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 25 with highest priority.&#xA;"/>
@@ -3751,7 +3751,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 26 with highest priority.&#xA;"/>
@@ -3771,7 +3771,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 27 with highest priority.&#xA;"/>
@@ -3791,7 +3791,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 28 with highest priority.&#xA;"/>
@@ -3811,7 +3811,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 29 with highest priority.&#xA;"/>
@@ -3831,7 +3831,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 30 with highest priority.&#xA;"/>
@@ -3851,7 +3851,7 @@
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x00000010"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x000000010"/>
               <FIELDS>
                 <FIELD NAME="IVA">
                   <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt vector address of active interrupt 31 with highest priority.&#xA;"/>
@@ -3870,7 +3870,7 @@
       </ADDRESSBLOCKS>
       <PARAMETERS>
         <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_INSTANCE" VALUE="system_system_interrupts_0"/>
+        <PARAMETER NAME="C_INSTANCE" VALUE="hdmi_system_interrupts_0"/>
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_NUM_INTR_INPUTS" VALUE="6"/>
@@ -3894,7 +3894,7 @@
         <PARAMETER NAME="C_HAS_FAST" VALUE="0"/>
         <PARAMETER NAME="C_EN_CASCADE_MODE" VALUE="0"/>
         <PARAMETER NAME="C_CASCADE_MASTER" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_system_interrupts_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_system_interrupts_0"/>
         <PARAMETER NAME="Sense_of_IRQ_Level_Type" VALUE="Active_High"/>
         <PARAMETER NAME="Sense_of_IRQ_Edge_Type" VALUE="Rising"/>
         <PARAMETER NAME="C_S_AXI_ACLK_FREQ_MHZ" VALUE="100.0"/>
@@ -4039,7 +4039,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="8"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -4392,7 +4392,7 @@
         <PARAMETER NAME="S13_ARB_PRIORITY" VALUE="0"/>
         <PARAMETER NAME="S14_ARB_PRIORITY" VALUE="0"/>
         <PARAMETER NAME="S15_ARB_PRIORITY" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_axi_interconnect_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_axi_interconnect_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -6465,7 +6465,7 @@
         <PARAMETER NAME="S13_ARB_PRIORITY" VALUE="0"/>
         <PARAMETER NAME="S14_ARB_PRIORITY" VALUE="0"/>
         <PARAMETER NAME="S15_ARB_PRIORITY" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_axi_mem_intercon_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_axi_mem_intercon_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -8574,7 +8574,7 @@
         <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_VERT_FLIP" VALUE="0"/>
         <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_axi_vdma_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_axi_vdma_0"/>
         <PARAMETER NAME="c_m_axi_mm2s_data_width" VALUE="32"/>
         <PARAMETER NAME="c_m_axis_mm2s_tdata_width" VALUE="32"/>
         <PARAMETER NAME="c_m_axi_s2mm_data_width" VALUE="64"/>
@@ -8982,7 +8982,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -9032,7 +9032,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="32"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -9079,7 +9079,7 @@
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="32"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -9114,7 +9114,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_mm2s_tdata"/>
@@ -9136,7 +9136,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_s2mm_tdata"/>
@@ -9169,6 +9169,10 @@
         <PARAMETER NAME="C_AXIS_TUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_AXIS_SIGNAL_SET" VALUE="0b00000000000000000000000010010011"/>
         <PARAMETER NAME="C_REG_CONFIG" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_SLR_CROSSINGS" VALUE="0"/>
+        <PARAMETER NAME="C_PIPELINES_MASTER" VALUE="0"/>
+        <PARAMETER NAME="C_PIPELINES_SLAVE" VALUE="0"/>
+        <PARAMETER NAME="C_PIPELINES_MIDDLE" VALUE="0"/>
         <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
         <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
         <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
@@ -9179,7 +9183,11 @@
         <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
         <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
         <PARAMETER NAME="HAS_ACLKEN" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_axis_register_slice_0_0"/>
+        <PARAMETER NAME="NUM_SLR_CROSSINGS" VALUE="0"/>
+        <PARAMETER NAME="PIPELINES_MASTER" VALUE="0"/>
+        <PARAMETER NAME="PIPELINES_MIDDLE" VALUE="0"/>
+        <PARAMETER NAME="PIPELINES_SLAVE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_axis_register_slice_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -9256,7 +9264,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_p1 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p1} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_p2 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p2} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_p3 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p3} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}} TDATA_WIDTH 24 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
@@ -9277,7 +9285,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_p1 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p1} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_p2 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p2} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_p3 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p3} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}} TDATA_WIDTH 24 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
@@ -9660,7 +9668,7 @@
       <PARAMETERS>
         <PARAMETER NAME="C_S_AXI_AXILITES_ADDR_WIDTH" VALUE="7"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_color_convert_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_color_convert_0"/>
         <PARAMETER NAME="clk_period" VALUE="7"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
@@ -9855,7 +9863,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -9892,7 +9900,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_in_24_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_in_24_TREADY"/>
@@ -9913,7 +9921,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_out_24_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_out_24_TREADY"/>
@@ -10110,7 +10118,7 @@
         <PARAMETER NAME="C_IS_DUAL" VALUE="1"/>
         <PARAMETER NAME="C_DOUT_DEFAULT_2" VALUE="0x00000000"/>
         <PARAMETER NAME="C_TRI_DEFAULT_2" VALUE="0xFFFFFFFF"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_axi_gpio_hdmiin_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_axi_gpio_hdmiin_0"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="GPIO_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="GPIO2_BOARD_INTERFACE" VALUE="Custom"/>
@@ -10257,7 +10265,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -10299,7 +10307,7 @@
       <PARAMETERS>
         <PARAMETER NAME="input_format" VALUE="rbg"/>
         <PARAMETER NAME="output_format" VALUE="rgb"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_color_swap_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_color_swap_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -10375,7 +10383,7 @@
         <PARAMETER NAME="kIDLY_TapWidth" VALUE="5"/>
         <PARAMETER NAME="kAddBUFG" VALUE="false"/>
         <PARAMETER NAME="kEdidFileName" VALUE="720p_edid.data"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_dvi2rgb_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_dvi2rgb_0_0"/>
         <PARAMETER NAME="kEnableSerialClkOutput" VALUE="false"/>
         <PARAMETER NAME="TMDS_BOARD_INTERFACE"/>
         <PARAMETER NAME="IIC_BOARD_INTERFACE"/>
@@ -10483,7 +10491,7 @@
         <PARAMETER NAME="C_INCLUDE_PIXEL_DROP" VALUE="0"/>
         <PARAMETER NAME="C_INCLUDE_PIXEL_REMAP_420" VALUE="0"/>
         <PARAMETER NAME="C_ADDR_WIDTH_PIXEL_REMAP_420" VALUE="10"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_v_vid_in_axi4s_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_v_vid_in_axi4s_0_0"/>
         <PARAMETER NAME="C_M_AXIS_VIDEO_FORMAT" VALUE="2"/>
         <PARAMETER NAME="C_M_AXIS_VIDEO_DATA_WIDTH" VALUE="8"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -10590,7 +10598,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xilinx.com:video:G_B_R_444:1.0} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value rows} size {attribs {resolve_type generated dependency active_rows format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency active_rows_stride format long minimum {} maximum {}} value 24} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cols} size {attribs {resolve_type generated dependency active_cols format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency active_cols_stride format long minimum {} maximum {}} value 24} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_G {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value G} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency video_data_width format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_B {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value B} enabled {attribs {resolve_type generated dependency video_comp1_enabled format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency video_data_width format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type generated dependency video_comp1_offset format long minimum {} maximum {}} value 8} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_R {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value R} enabled {attribs {resolve_type generated dependency video_comp2_enabled format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency video_data_width format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type generated dependency video_comp2_offset format long minimum {} maximum {}} value 16} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}}} TDATA_WIDTH 24}"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_video_tdata"/>
@@ -10713,7 +10721,7 @@
         <PARAMETER NAME="C_GEN_ACHROMA_EN" VALUE="0"/>
         <PARAMETER NAME="C_GEN_FIELDID_EN" VALUE="0"/>
         <PARAMETER NAME="C_DET_FIELDID_EN" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_vtc_in_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_vtc_in_0"/>
         <PARAMETER NAME="C_FAMILY" VALUE="virtex7"/>
         <PARAMETER NAME="HAS_AXI4_LITE" VALUE="true"/>
         <PARAMETER NAME="HAS_INTC_IF" VALUE="true"/>
@@ -10963,7 +10971,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -11058,7 +11066,7 @@
       <PARAMETERS>
         <PARAMETER NAME="C_S_AXI_AXILITES_ADDR_WIDTH" VALUE="5"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_pixel_pack_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_pixel_pack_0"/>
         <PARAMETER NAME="clk_period" VALUE="7"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
@@ -11253,7 +11261,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -11290,7 +11298,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_in_24_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_in_24_TREADY"/>
@@ -11311,7 +11319,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_out_32_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_out_32_TREADY"/>
@@ -11334,6 +11342,10 @@
         <PARAMETER NAME="C_AXIS_TUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_AXIS_SIGNAL_SET" VALUE="0b00000000000000000000000010010011"/>
         <PARAMETER NAME="C_REG_CONFIG" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_SLR_CROSSINGS" VALUE="0"/>
+        <PARAMETER NAME="C_PIPELINES_MASTER" VALUE="0"/>
+        <PARAMETER NAME="C_PIPELINES_SLAVE" VALUE="0"/>
+        <PARAMETER NAME="C_PIPELINES_MIDDLE" VALUE="0"/>
         <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
         <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
         <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
@@ -11344,7 +11356,11 @@
         <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
         <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
         <PARAMETER NAME="HAS_ACLKEN" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_axis_register_slice_0_1"/>
+        <PARAMETER NAME="NUM_SLR_CROSSINGS" VALUE="0"/>
+        <PARAMETER NAME="PIPELINES_MASTER" VALUE="0"/>
+        <PARAMETER NAME="PIPELINES_MIDDLE" VALUE="0"/>
+        <PARAMETER NAME="PIPELINES_SLAVE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_axis_register_slice_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -11421,7 +11437,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 24 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
@@ -11442,7 +11458,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 24 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
@@ -11825,7 +11841,7 @@
       <PARAMETERS>
         <PARAMETER NAME="C_S_AXI_AXILITES_ADDR_WIDTH" VALUE="7"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_color_convert_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_color_convert_1"/>
         <PARAMETER NAME="clk_period" VALUE="7"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
@@ -12020,7 +12036,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -12057,7 +12073,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_in_24_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_in_24_TREADY"/>
@@ -12078,7 +12094,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_out_24_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_out_24_TREADY"/>
@@ -12098,7 +12114,7 @@
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="5"/>
         <PARAMETER NAME="ADD_BUFMR" VALUE="false"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_axi_dynclk_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_axi_dynclk_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0x43C10000"/>
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x43C1FFFF"/>
@@ -12259,7 +12275,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -12293,7 +12309,7 @@
       <PARAMETERS>
         <PARAMETER NAME="input_format" VALUE="rgb"/>
         <PARAMETER NAME="output_format" VALUE="rbg"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_color_swap_0_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_color_swap_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -12543,7 +12559,7 @@
         <PARAMETER NAME="C_IS_DUAL" VALUE="0"/>
         <PARAMETER NAME="C_DOUT_DEFAULT_2" VALUE="0x00000000"/>
         <PARAMETER NAME="C_TRI_DEFAULT_2" VALUE="0xFFFFFFFF"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_hdmi_out_hpd_video_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_hdmi_out_hpd_video_0"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="GPIO_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="GPIO2_BOARD_INTERFACE" VALUE="Custom"/>
@@ -12685,7 +12701,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -12726,7 +12742,7 @@
         <PARAMETER NAME="kClkPrimitive" VALUE="MMCM"/>
         <PARAMETER NAME="kRstActiveHigh" VALUE="false"/>
         <PARAMETER NAME="kClkRange" VALUE="2"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_rgb2dvi_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_rgb2dvi_0_0"/>
         <PARAMETER NAME="TMDS_BOARD_INTERFACE"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -12810,7 +12826,7 @@
         <PARAMETER NAME="C_INCLUDE_PIXEL_REPEAT" VALUE="0"/>
         <PARAMETER NAME="C_INCLUDE_PIXEL_REMAP_420" VALUE="0"/>
         <PARAMETER NAME="C_ADDR_WIDTH_PIXEL_REMAP_420" VALUE="10"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_v_axi4s_vid_out_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_v_axi4s_vid_out_0_0"/>
         <PARAMETER NAME="C_S_AXIS_VIDEO_FORMAT" VALUE="2"/>
         <PARAMETER NAME="C_S_AXIS_VIDEO_DATA_WIDTH" VALUE="8"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -12923,7 +12939,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_p1 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p1} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_p2 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p2} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} field_p3 {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value p3} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}} TDATA_WIDTH 24 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_video_tdata"/>
@@ -13046,7 +13062,7 @@
         <PARAMETER NAME="C_GEN_ACHROMA_EN" VALUE="0"/>
         <PARAMETER NAME="C_GEN_FIELDID_EN" VALUE="0"/>
         <PARAMETER NAME="C_DET_FIELDID_EN" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_vtc_out_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_vtc_out_0"/>
         <PARAMETER NAME="C_FAMILY" VALUE="virtex7"/>
         <PARAMETER NAME="HAS_AXI4_LITE" VALUE="true"/>
         <PARAMETER NAME="HAS_INTC_IF" VALUE="false"/>
@@ -13303,7 +13319,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -13370,7 +13386,7 @@
       <PARAMETERS>
         <PARAMETER NAME="C_S_AXI_AXILITES_ADDR_WIDTH" VALUE="5"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_pixel_unpack_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_pixel_unpack_0"/>
         <PARAMETER NAME="clk_period" VALUE="7"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
@@ -13565,7 +13581,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
@@ -13602,7 +13618,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_in_32_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_in_32_TREADY"/>
@@ -13623,7 +13639,7 @@
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="142857132"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_ps7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="hdmi_ps7_0_0_FCLK_CLK1"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_out_24_TVALID"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_out_24_TREADY"/>
@@ -13648,7 +13664,7 @@
         <PARAMETER NAME="C_NUM_PERP_RST" VALUE="1"/>
         <PARAMETER NAME="C_NUM_INTERCONNECT_ARESETN" VALUE="1"/>
         <PARAMETER NAME="C_NUM_PERP_ARESETN" VALUE="1"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_proc_sys_reset_pixelclk_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_proc_sys_reset_pixelclk_0"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -13724,7 +13740,7 @@
         <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
         <PARAMETER NAME="dout_width" VALUE="6"/>
         <PARAMETER NAME="NUM_PORTS" VALUE="6"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_xlconcat_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_xlconcat_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -13803,7 +13819,7 @@
         <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
         <PARAMETER NAME="dout_width" VALUE="1"/>
         <PARAMETER NAME="NUM_PORTS" VALUE="1"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_xlconcat_0_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="hdmi_xlconcat_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>

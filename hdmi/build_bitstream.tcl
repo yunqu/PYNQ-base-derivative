@@ -1,5 +1,5 @@
 set overlay_name "hdmi"
-set design_name "system"
+set design_name "hdmi"
 
 # Add top wrapper and xdc files
 make_wrapper -files [get_files ./${overlay_name}/${overlay_name}.srcs/sources_1/bd/${design_name}/${design_name}.bd] -top

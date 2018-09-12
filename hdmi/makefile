@@ -1,9 +1,9 @@
 overlay_name := hdmi
-design_name := system
+design_name := hdmi
 base_path := ../base
 device := xc7z020clg400-1
 
-all: base tcl xdc bit dsa
+all: base tcl xdc bit check_timing dsa
 	@echo
 	@tput setaf 2 ; echo "Built $(overlay_name) successfully!"; tput sgr0;
 	@echo
@@ -21,8 +21,7 @@ base:
 	fi
 
 tcl:
-	vivado -mode batch -source \
-	build_$(overlay_name)_$(design_name).tcl -notrace
+	vivado -mode batch -source modify_parent.tcl -notrace
 
 xdc:
 	@mkdir vivado
@@ -41,8 +40,13 @@ bit:
 	set_property  ip_repo_paths ../../ip [current_project]\
 	update_ip_catalog\
 	' $(overlay_name).tcl; \
+	sed -i 's/^set design_name \(.*\)/set design_name $(design_name)/g' \
+	$(overlay_name).tcl; \
 	vivado -mode batch -source \
 	$(overlay_name).tcl build_bitstream.tcl -notrace
+
+check_timing:
+	vivado -mode batch -source check_$(overlay_name).tcl -notrace
 
 dsa:
 	vivado -mode batch -source build_$(overlay_name)_dsa.tcl -notrace
@@ -50,7 +54,7 @@ dsa:
 	cp -rf .dsa/$(design_name).hwh ./$(overlay_name).hwh
 
 clean:
-	rm -rf $(overlay_name) *.jou *.log
+	rm -rf $(overlay_name) *.jou *.log NA
 	rm -rf base
 	rm -rf vivado
 	rm -rf .dsa
