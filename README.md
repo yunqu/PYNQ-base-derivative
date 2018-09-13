@@ -31,9 +31,10 @@ To use the make flow, the following steps have to be followed:
 
     ```shell
 	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git
-    cp -rf PYNQ-derivative-overlays/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
+    cp -rf PYNQ-derivative-overlays/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/
     ```
-    Note that here we assume the starting point of the derivatives is `Pynq-Z1`.
+    
+    Different overlays may need to be built from different starting points. 
     To change the starting point, users can refer to the table listed at the end of 
     this README.
 
@@ -61,9 +62,9 @@ To use the make flow, the following steps have to be followed:
     cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/sdx_platform
     make
     ```
-    Additional options can be found using `make help`. Basically users are allowed
-    to change the overlay name, the root of the overlay folder, 
-    the processor name, etc.
+    Additional options to build SDx platforms can be found using `make help`. 
+    Basically users are allowed to change the overlay name, 
+    the root of the overlay folder, the processor name, etc.
 
 ## Supported Overlays and Boards
 
@@ -72,14 +73,18 @@ the derivative overlays finally can target multiple boards.
 
 The parent overlay is the original overlay that the derivative overlays
 depend on. If there is no parent overlay, you can build the corresponding 
-derivative overlay anywhere (not necessarily from the starting point folder).
+derivative overlay anywhere (not necessarily from the starting point folder); 
+for this case, the starting point can be any folder.
 
 | Overlays        | Boards           | Devices              | Starting Point | Parent Overlay |
 |:--------------- |:-----------------|:---------------------|----------------|----------------|
 | hdmi            | Pynq-Z1          | xc7z020clg400-1      | Pynq-Z1        | base           |
 | hdmi            | Pynq-Z2          | xc7z020clg400-1      | Pynq-Z1        | base           |
 | hdmi            | Arty-Z7-10       | xc7z010clg400-1      | Pynq-Z1        | base           |
-| bare            | Pynq-Z1          | xc7z020clg400-1      | Pynq-Z1        | -              |
-| bare            | Pynq-Z2          | xc7z020clg400-1      | Pynq-Z1        | -              |
-| bare            | Arty-Z7-10       | xc7z010clg400-1      | Pynq-Z1        | -              |
-| ultra           | Ultra96          | xczu3eg-sbva484-1-i  | Ultra96        | -              |
+| hdmi            | Arty-Z7-20       | xc7z020clg400-1      | Pynq-Z1        | base           |
+| bare            | Pynq-Z1          | xc7z020clg400-1      | -              | -              |
+| bare            | Pynq-Z2          | xc7z020clg400-1      | -              | -              |
+| bare            | Arty-Z7-10       | xc7z010clg400-1      | -              | -              |
+| bare            | Arty-Z7-20       | xc7z020clg400-1      | -              | -              |
+| ultra           | Ultra96          | xczu3eg-sbva484-1-i  | -              | -              |
+| ultra           | ZCU104           | xczu7ev-ffvc1156-2-e | -              | -              |
