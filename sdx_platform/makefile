@@ -32,11 +32,11 @@ help:
 	@echo "options:"
 	@echo "--------"
 	@echo "help:       show help message."
-	@echo "all:        make the SDx platform, and verify it."
+	@echo "all:        make the SDx platform, and test it."
 	@echo "platform:   make the SDx platform based on the input arguments."
 	@echo "test:       do a simple test after a given platform is made."
 	@echo "cleantest:  clean the test folder."
-	@echo "clean:      clean the test and the SDx platform for the overlay."
+	@echo "clean:      clean the test and SDx platforms for the given board."
 	@echo "cleanall:   clean all the platforms for a fresh start."
 	@echo
 	@echo "arguments:"
@@ -84,7 +84,7 @@ cleantest:
 
 clean: cleantest
 	rm -rf .build
-	rm -rf $(BOARD)/platforms/$(OVERLAY)
+	rm -rf $(BOARD)/platforms
 	rm -rf ./$(BOARD)/hw
 
 cleanall: clean
