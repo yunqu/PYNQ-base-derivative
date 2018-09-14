@@ -18,9 +18,6 @@ set_property PFM.AXI_PORT { \
     M_AXI_HPM0_FPD {memport "M_AXI_GP"} \
     M_AXI_HPM1_FPD {memport "M_AXI_GP"} \
     M_AXI_HPM0_LPD {memport "M_AXI_GP"} \
-    S_AXI_ACP_FPD {memport "S_AXI_ACP"} \
-    S_AXI_HPC0_FPD {memport "S_AXI_HPC"} \
-    S_AXI_HPC1_FPD {memport "S_AXI_HPC"} \
     S_AXI_HP0_FPD {memport "S_AXI_HP"} \
     S_AXI_HP1_FPD {memport "S_AXI_HP"} \
     S_AXI_HP2_FPD {memport "S_AXI_HP"} \
@@ -32,6 +29,12 @@ for {set i 1} {$i < 8} {incr i} {
     lappend intVar In$i {}
 }
 set_property PFM.IRQ $intVar [get_bd_cells /xlconcat_0]
+
+set intVar2 []
+for {set i 0} {$i < 8} {incr i} {
+    lappend intVar2 In$i {}
+}
+set_property PFM.IRQ $intVar2 [get_bd_cells /xlconcat_1]
 
 # generate dsa
 write_dsa -force ./${overlay_name}.dsa

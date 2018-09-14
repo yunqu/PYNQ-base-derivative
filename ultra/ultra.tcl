@@ -232,8 +232,8 @@ proc create_root_design { parentCell } {
    CONFIG.PSU_BANK_1_IO_STANDARD {LVCMOS18} \
    CONFIG.PSU_BANK_2_IO_STANDARD {LVCMOS18} \
    CONFIG.PSU_BANK_3_IO_STANDARD {LVCMOS18} \
-   CONFIG.PSU_DDR_RAM_HIGHADDR {0xFFFFFFFF} \
-   CONFIG.PSU_DDR_RAM_HIGHADDR_OFFSET {0x800000000} \
+   CONFIG.PSU_DDR_RAM_HIGHADDR {0x7FFFFFFF} \
+   CONFIG.PSU_DDR_RAM_HIGHADDR_OFFSET {0x00000002} \
    CONFIG.PSU_DDR_RAM_LOWADDR_OFFSET {0x80000000} \
    CONFIG.PSU_IMPORT_BOARD_PRESET {} \
    CONFIG.PSU_MIO_0_DIRECTION {inout} \
@@ -996,7 +996,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__DDRC__DDR4_T_REF_MODE {NA} \
    CONFIG.PSU__DDRC__DDR4_T_REF_RANGE {NA} \
    CONFIG.PSU__DDRC__DEEP_PWR_DOWN_EN {0} \
-   CONFIG.PSU__DDRC__DEVICE_CAPACITY {16384 MBits} \
+   CONFIG.PSU__DDRC__DEVICE_CAPACITY {8192 MBits} \
    CONFIG.PSU__DDRC__DIMM_ADDR_MIRROR {NA} \
    CONFIG.PSU__DDRC__DM_DBI {DM_NO_DBI} \
    CONFIG.PSU__DDRC__DQMAP_0_3 {0} \
@@ -1037,7 +1037,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__DDRC__PWR_DOWN_EN {0} \
    CONFIG.PSU__DDRC__RANK_ADDR_COUNT {1} \
    CONFIG.PSU__DDRC__RD_DQS_CENTER {0} \
-   CONFIG.PSU__DDRC__ROW_ADDR_COUNT {16} \
+   CONFIG.PSU__DDRC__ROW_ADDR_COUNT {15} \
    CONFIG.PSU__DDRC__SB_TARGET {NA} \
    CONFIG.PSU__DDRC__SELF_REF_ABORT {NA} \
    CONFIG.PSU__DDRC__SPEED_BIN {LPDDR4_1066} \
@@ -1047,15 +1047,34 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__DDRC__TRAIN_WRITE_LEVEL {1} \
    CONFIG.PSU__DDRC__T_FAW {40} \
    CONFIG.PSU__DDRC__T_RAS_MIN {42} \
-   CONFIG.PSU__DDRC__T_RC {64} \
+   CONFIG.PSU__DDRC__T_RC {63} \
    CONFIG.PSU__DDRC__T_RCD {10} \
    CONFIG.PSU__DDRC__T_RP {12} \
    CONFIG.PSU__DDRC__VENDOR_PART {OTHERS} \
    CONFIG.PSU__DDRC__VIDEO_BUFFER_SIZE {0} \
    CONFIG.PSU__DDRC__VREF {0} \
-   CONFIG.PSU__DDR_HIGH_ADDRESS_GUI_ENABLE {1} \
-   CONFIG.PSU__DDR_QOS_ENABLE {0} \
-   CONFIG.PSU__DDR_SW_REFRESH_ENABLED {0} \
+   CONFIG.PSU__DDR_HIGH_ADDRESS_GUI_ENABLE {0} \
+   CONFIG.PSU__DDR_QOS_ENABLE {1} \
+   CONFIG.PSU__DDR_QOS_HP0_RDQOS {7} \
+   CONFIG.PSU__DDR_QOS_HP0_WRQOS {15} \
+   CONFIG.PSU__DDR_QOS_HP1_RDQOS {3} \
+   CONFIG.PSU__DDR_QOS_HP1_WRQOS {3} \
+   CONFIG.PSU__DDR_QOS_HP2_RDQOS {3} \
+   CONFIG.PSU__DDR_QOS_HP2_WRQOS {3} \
+   CONFIG.PSU__DDR_QOS_HP3_RDQOS {3} \
+   CONFIG.PSU__DDR_QOS_HP3_WRQOS {3} \
+   CONFIG.PSU__DDR_QOS_PORT0_TYPE {Low Latency} \
+   CONFIG.PSU__DDR_QOS_PORT1_VN1_TYPE {Low Latency} \
+   CONFIG.PSU__DDR_QOS_PORT1_VN2_TYPE {Best Effort} \
+   CONFIG.PSU__DDR_QOS_PORT2_VN1_TYPE {Low Latency} \
+   CONFIG.PSU__DDR_QOS_PORT2_VN2_TYPE {Best Effort} \
+   CONFIG.PSU__DDR_QOS_PORT3_TYPE {Video Traffic} \
+   CONFIG.PSU__DDR_QOS_PORT4_TYPE {Best Effort} \
+   CONFIG.PSU__DDR_QOS_PORT5_TYPE {Best Effort} \
+   CONFIG.PSU__DDR_QOS_RD_HPR_THRSHLD {0} \
+   CONFIG.PSU__DDR_QOS_RD_LPR_THRSHLD {16} \
+   CONFIG.PSU__DDR_QOS_WR_THRSHLD {16} \
+   CONFIG.PSU__DDR_SW_REFRESH_ENABLED {1} \
    CONFIG.PSU__DDR__INTERFACE__FREQMHZ {266.500} \
    CONFIG.PSU__DEVICE_TYPE {EG} \
    CONFIG.PSU__DISPLAYPORT__LANE0__ENABLE {1} \
@@ -1421,7 +1440,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__USE__GDMA {0} \
    CONFIG.PSU__USE__IRQ {0} \
    CONFIG.PSU__USE__IRQ0 {1} \
-   CONFIG.PSU__USE__IRQ1 {0} \
+   CONFIG.PSU__USE__IRQ1 {1} \
    CONFIG.PSU__USE__M_AXI_GP0 {0} \
    CONFIG.PSU__USE__M_AXI_GP1 {0} \
    CONFIG.PSU__USE__M_AXI_GP2 {0} \
@@ -1473,12 +1492,19 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_PORTS {1} \
  ] $xlconcat_0
 
+  # Create instance: xlconcat_0, and set properties
+  set xlconcat_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_1 ]
+  set_property -dict [ list \
+   CONFIG.NUM_PORTS {1} \
+ ] $xlconcat_1
+
   # Create port connections
   connect_bd_net -net constant0_dout [get_bd_pins constant0/dout] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net ps_e_0_pl_clk1 [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins ps_e_0/pl_clk1]
   connect_bd_net -net ps_e_0_pl_clk2 [get_bd_pins proc_sys_reset_2/slowest_sync_clk] [get_bd_pins ps_e_0/pl_clk2]
   connect_bd_net -net ps_e_0_pl_clk3 [get_bd_pins proc_sys_reset_3/slowest_sync_clk] [get_bd_pins ps_e_0/pl_clk3]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins ps_e_0/pl_ps_irq0] [get_bd_pins xlconcat_0/dout]
+  connect_bd_net -net xlconcat_1_dout [get_bd_pins ps_e_0/pl_ps_irq1] [get_bd_pins xlconcat_1/dout]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins ps_e_0/pl_clk0]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins proc_sys_reset_2/ext_reset_in] [get_bd_pins proc_sys_reset_3/ext_reset_in] [get_bd_pins ps_e_0/pl_resetn0]
 
