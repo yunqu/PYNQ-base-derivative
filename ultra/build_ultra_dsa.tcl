@@ -25,7 +25,7 @@ set_property PFM.AXI_PORT { \
     S_AXI_LPD {memport "S_AXI_HP"} \
     } [get_bd_cells /ps_e_0]
 set intVar []
-for {set i 1} {$i < 8} {incr i} {
+for {set i 0} {$i < 8} {incr i} {
     lappend intVar In$i {}
 }
 set_property PFM.IRQ $intVar [get_bd_cells /xlconcat_0]
