@@ -66,6 +66,7 @@ To use the make flow, the following steps have to be followed:
     Basically users are allowed to change the overlay name, 
     the root of the overlay folder, the processor name, etc.
 
+
 ## Supported Overlays and Boards
 
 Although the starting point of the make process can be the same board, 
@@ -73,8 +74,7 @@ the derivative overlays finally can target multiple boards.
 
 The parent overlay is the original overlay that the derivative overlays
 depend on. If there is no parent overlay, you can build the corresponding 
-derivative overlay anywhere (not necessarily from the starting point folder); 
-for this case, the starting point can be any folder.
+derivative overlay anywhere (not necessarily from the starting point folder).
 
 | Overlays        | Boards           | Devices              | Starting Point | Parent Overlay |
 |:--------------- |:-----------------|:---------------------|----------------|----------------|
