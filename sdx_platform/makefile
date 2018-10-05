@@ -62,11 +62,10 @@ test: cleantest $(OBJECTS)
 	mkdir -p $(TEST_DIR)
 	@echo 'Building Target: $@'
 	@echo 'Trigerring: SDS++ Linker'
-	cd $(TEST_DIR) ; $(CPP) -o adder.elf $(OBJECTS)
+	cd $(TEST_DIR) ; $(CPP) -fPIC -Wall -shared -o adder.so $(OBJECTS)
 	@echo 'SDx Completed Building Target: $@'
 	@echo
 	@tput setaf 2; \
-	grep "ERROR: " $(LOGFILE) || \
 	echo "PASS: Platform successfully tested."; \
 	tput sgr0;
 	@echo
