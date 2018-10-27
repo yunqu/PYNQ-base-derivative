@@ -67,9 +67,9 @@ Usually users have to make these steps a single script, or put them inside
 6. In case you need to allocate contiguous memory:
    ```python
    xlnk = Xlnk()
-   ain = Xlnk.cma_array(shape=(100,), dtype=np.uint32)
-   bin = Xlnk.cma_array(shape=(100,), dtype=np.uint32)
-   cout = Xlnk.cma_array(shape=(100,), dtype=np.uint32)
+   ain = xlnk.cma_array(shape=(100,), dtype=np.uint32)
+   bin = xlnk.cma_array(shape=(100,), dtype=np.uint32)
+   cout = xlnk.cma_array(shape=(100,), dtype=np.uint32)
    ```
 7. Call the function. For example,
    ```python
