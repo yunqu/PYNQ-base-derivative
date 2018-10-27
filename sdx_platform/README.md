@@ -1,5 +1,29 @@
 # SDx Platforms
 
+Our SDx platform building flow does not depend on the overlay; i.e., we can
+just use any DSA file to construct the corresponding SDx platform.
+All we need to specify is:
+```shell
+make DSA_PATH=<your_dsa> OVERLAY=<your_overlay> BOARD=<your_board_name> PROC=<processor_type>
+```
+
+For example, the PYNQ overlays usually come with DSA files (or make flows
+to generate the DSA files). Suppose you have the DSA file ready, you can 
+directly update the `make` parameters above to generate its corresponding 
+SDx platform:
+```shell
+make DSA_PATH=../base/base.dsa OVERLAY=base BOARD=Pynq-Z1 PROC=ps7_cortexa9_0
+```
+
+Note that the above script is just an example; the base overlay may not be the 
+perfect example, since it has already used the majority of the PL resources.
+
+More details can be seen by running:
+```shell
+make help
+```
+
+## Getting `sw` components
 The SDx platform make flow is compatible with the SD image building flow of
 PYNQ. In this repository, only empty `linux.bif` and `image.ub` files are 
 provided; no `*.elf` files are provided.
@@ -7,24 +31,21 @@ So users will NOT be able to use SDx to build a bootable image.
 The SD image building flow of PYNQ is recommended for that purpose.
 
 If users for some reasons want to build the SDx platforms with the 
-real binary files, they can run the following command inside `sdbuild` 
-folder of the PYNQ repository:
-
-```shell
-make sdx_sw
-```
+real binary files, they can run `make sdx_sw` inside `sdbuild` 
+folder of the PYNQ repository.
 
 Users will then be able to get the real `sw` component of the SDx 
 platform. Again, this is not mandatory for building an SDx platform.
 
-## Test
+
+## Verification Test
 
 By default, the make flow will run test against a newly built SDx platform.
 The test consists of an addition over 2 arrays.
 
-## SDx on PYNQ
+## Porting onto PYNQ
 
-To use SDx built projects on PYNQ, a simple set of instructions are provided.
+To use SDx projects on PYNQ, a simple set of instructions are provided.
 Usually users have to make these steps a single script, or put them inside 
 `setup.py` for pip-installable python package.
 
@@ -76,3 +97,7 @@ Usually users have to make these steps a single script, or put them inside
    dlib._p0_adder_1_noasync(ain.pointer, bin.pointer, cout.pointer, 100)
    ```
 8. Verify the result.
+9. Remember to free all the contiguous memory if any. The easiest way is:
+   ```python
+   xlnk.xlnk_reset()
+   ```
