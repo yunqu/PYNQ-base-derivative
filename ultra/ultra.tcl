@@ -190,6 +190,11 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
+  # Create instance: constant0, and set properties
+  set constant0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 constant0 ]
+  set_property -dict [ list \
+    CONFIG.CONST_VAL {0} \ 
+  ] $constant0
 
   # Create instance: proc_sys_reset_0, and set properties
   set proc_sys_reset_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0 ]
@@ -1592,6 +1597,7 @@ proc create_root_design { parentCell } {
  ] $xlconcat_1
 
   # Create port connections
+  connect_bd_net -net constant0_dout [get_bd_pins constant0/dout] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net ps_e_0_pl_clk1 [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins ps_e_0/pl_clk1]
   connect_bd_net -net ps_e_0_pl_clk2 [get_bd_pins proc_sys_reset_2/slowest_sync_clk] [get_bd_pins ps_e_0/pl_clk2]
   connect_bd_net -net ps_e_0_pl_clk3 [get_bd_pins proc_sys_reset_3/slowest_sync_clk] [get_bd_pins ps_e_0/pl_clk3]
