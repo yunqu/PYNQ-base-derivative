@@ -17,15 +17,15 @@ set_property PFM.CLOCK { \
 set_property PFM.AXI_PORT { \
     M_AXI_HPM0_FPD {memport "M_AXI_GP"} \
     M_AXI_HPM1_FPD {memport "M_AXI_GP"} \
-    M_AXI_HPM0_LPD {memport "M_AXI_GP"} \
     S_AXI_HP0_FPD {memport "S_AXI_HP"} \
     S_AXI_HP1_FPD {memport "S_AXI_HP"} \
     S_AXI_HP2_FPD {memport "S_AXI_HP"} \
     S_AXI_HP3_FPD {memport "S_AXI_HP"} \
-    S_AXI_LPD {memport "S_AXI_HP"} \
     } [get_bd_cells /ps_e_0]
+
+# we skip irq0 (reserved by PYNQ for python)
 set intVar []
-for {set i 0} {$i < 8} {incr i} {
+for {set i 1} {$i < 8} {incr i} {
     lappend intVar In$i {}
 }
 set_property PFM.IRQ $intVar [get_bd_cells /xlconcat_0]
