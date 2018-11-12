@@ -23,7 +23,7 @@ set_property PFM.AXI_PORT { \
     S_AXI_HP3_FPD {memport "S_AXI_HP"} \
     } [get_bd_cells /ps_e_0]
 
-# we skip irq0 (reserved by PYNQ for python)
+# skip irq0 (reserved by pynq for uio)
 set intVar []
 for {set i 1} {$i < 8} {incr i} {
     lappend intVar In$i {}

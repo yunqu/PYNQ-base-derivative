@@ -125,6 +125,7 @@ if { $bCheckIPs == 1 } {
 xilinx.com:ip:proc_sys_reset:5.0\
 xilinx.com:ip:zynq_ultra_ps_e:3.2\
 xilinx.com:ip:xlconcat:2.1\
+xilinx.com:ip:xlconstant:1.1\
 "
 
    set list_ips_missing ""
@@ -190,11 +191,12 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
+
   # Create instance: constant0, and set properties
   set constant0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 constant0 ]
   set_property -dict [ list \
-    CONFIG.CONST_VAL {0} \ 
-  ] $constant0
+   CONFIG.CONST_VAL {0} \
+ ] $constant0
 
   # Create instance: proc_sys_reset_0, and set properties
   set proc_sys_reset_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0 ]
