@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2018.2
+set scripts_vivado_version 2018.3
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -1754,6 +1754,7 @@ proc create_root_design { parentCell } {
   set_property PFM_NAME {xilinx.com:xd:base:1.0} [get_files [current_bd_design].bd]
 
 
+  validate_bd_design
   save_bd_design
 }
 # End of create_root_design()
