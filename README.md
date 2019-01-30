@@ -55,6 +55,8 @@ To use the make flow, the following steps have to be followed:
     ```shell
     make device=xc7z010clg400-1
     ```
+    To check the boards and devices supported, users can refer to the table 
+    listed at the end of this README.
 
 5. (optional) If you also want to generate the corresponding SDx platform for a specific board:
 	```shell
