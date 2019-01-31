@@ -1,6 +1,10 @@
 set overlay_name "ultra"
 set design_name "ultra"
 
+# open block design
+open_project ./${overlay_name}/${overlay_name}.xpr
+open_bd_design ./${overlay_name}/${overlay_name}.srcs/sources_1/bd/${design_name}/${design_name}.bd
+
 # Add top wrapper, no xdc files
 make_wrapper -files [get_files ./${overlay_name}/${overlay_name}.srcs/sources_1/bd/${design_name}/${design_name}.bd] -top
 add_files -norecurse ./${overlay_name}/${overlay_name}.srcs/sources_1/bd/${design_name}/hdl/${design_name}_wrapper.v
@@ -18,3 +22,6 @@ file copy -force ./${overlay_name}/${overlay_name}.sdk/${overlay_name}.hdf .
 
 # move and rename bitstream to final location
 file copy -force ./${overlay_name}/${overlay_name}.runs/impl_1/${design_name}_wrapper.bit ${overlay_name}.bit
+
+# copy hwh files
+file copy -force ./${overlay_name}/${overlay_name}.srcs/sources_1/bd/${design_name}/hw_handoff/${design_name}.hwh ${overlay_name}.hwh
