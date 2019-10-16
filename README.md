@@ -14,6 +14,10 @@ the basic flow works like the following:
 The make flow provided in this repository has to be run under Linux. 
 The entire flow is **automated**.
 
+This repository also facilitates the automated flow for building SDx/Vitis
+platforms. Note that starting from Xilinx 2019.1 tools, 
+SDx tools are gradually deprecated.
+
 ## Quick Start
 
 To use the make flow, the following steps have to be followed:
@@ -30,8 +34,8 @@ To use the make flow, the following steps have to be followed:
 3. Clone this repository and copy the overlay folder into the local PYNQ repository.
 
     ```shell
-	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git
-    cp -rf PYNQ-derivative-overlays/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/
+	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git <LOCAL_PYNQ_DERIV_REPO>
+    cp -rf <LOCAL_PYNQ_DERIV_REPO>/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/
     ```
     
     Different overlays may need to be built from different starting points. 
@@ -41,7 +45,7 @@ To use the make flow, the following steps have to be followed:
 4. Then you are ready to run the make process.
 
 	```shell
-    cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/<OVERLAY_NAME>
+    cd <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/<OVERLAY_NAME>
 	make
 	```
 
@@ -58,13 +62,22 @@ To use the make flow, the following steps have to be followed:
     To check the boards and devices supported, users can refer to the table 
     listed at the end of this README.
 
-5. (optional) If you also want to generate the corresponding SDx platform for a specific board:
+5. ~~(Deprecated soon) If you want to generate the corresponding SDx platform for a specific board:~~
 	```shell
     cp -rf PYNQ-derivative-overlays/sdx_platform <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
     cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/sdx_platform
     make
     ```
-    Additional options to build SDx platforms can be found using `make help`. 
+    ~~Additional options to build SDx platforms can be found using `make help`. 
+    Basically users are allowed to change the overlay name, 
+    the root of the overlay folder, the processor name, etc.~~
+
+6. (Optional) If you want to generate the corresponding Vitis platform for a specific board:
+	```shell
+    cd <LOCAL_PYNQ_DERIV_REPO>/vitis_platform
+    make
+    ```
+    Additional options to build platforms can be found using `make help`. 
     Basically users are allowed to change the overlay name, 
     the root of the overlay folder, the processor name, etc.
 
