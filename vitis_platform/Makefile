@@ -48,7 +48,9 @@ help:
 
 test: cleantest
 	@echo 'Building Test Project'
-	cd $(TEST_DIR) && make xclbin && cd ..
+	cd $(TEST_DIR) && \
+	make xclbin VITIS_PLATFORM=../$(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm && \
+	cd ..
 	@echo 'Completed Building Test Project'
 	@echo
 	@tput setaf 2; echo "PASS: Platform successfully tested."; tput sgr0;

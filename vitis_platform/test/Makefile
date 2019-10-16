@@ -1,7 +1,7 @@
 RM = rm -f
 RMDIR = rm -rf
 
-VITIS_PLATFORM = /group/xrlabs/yunq/public/vitis_platform_2019.1/ZCU104/ultra/ultra.xpfm
+VITIS_PLATFORM = /home/yunq/Pynq-Python/PYNQ-derivative-overlays/vitis_platform/ZCU104/platforms/ultra/ultra.xpfm
 XOCC := xocc
 MPSOC_CXX := g++
 SYS_CONFIG := xrt
@@ -34,7 +34,7 @@ vadd.elf: host.o xcl2.o
 	${MPSOC_CXX} $^ -L/opt/xilinx/xrt/lib -lxilinxopencl -lxrt_core -o $@
 
 clean:
-	${RM} *.o *.elf *.log
+	${RMDIR} *.o *.elf *.log .Xil
 
 cleanall: clean
 	${RMDIR} binary_container_1/
