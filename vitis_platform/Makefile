@@ -34,7 +34,7 @@ help:
 	@echo "OVERLAY:    name of the overlay (must be same as the platform)"
 	@echo "            e.g., ultra, bare, hdmi"
 	@echo "BOARD:      name of the board"
-	@echo "            e.g., ZCU104, Ultra96"
+	@echo "            e.g., ZCU104, Ultra96, ZCU111"
 	@echo "PROC:       name of the processor that can be targeted"
 	@echo "            e.g., psu_cortexa53, ps7_cortexa9_0"
 	@echo
