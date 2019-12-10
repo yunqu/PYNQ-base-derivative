@@ -14,9 +14,8 @@ the basic flow works like the following:
 The make flow provided in this repository has to be run under Linux. 
 The entire flow is **automated**.
 
-This repository also facilitates the automated flow for building SDx/Vitis
-platforms. Note that starting from Xilinx 2019.1 tools, 
-SDx tools are gradually deprecated.
+This repository also facilitates the automated flow for building Vitis
+platforms.
 
 ## Quick Start
 
@@ -51,7 +50,7 @@ To use the make flow, the following steps have to be followed:
 
 	It may take a few hours for the make process to finish. Once it is done,
 	you will have all the corresponding overlay files. Most importantly,
-    you will have the `<OVERLAY_NAME>.dsa` file ready.
+    you will have the `<OVERLAY_NAME>.xsa` file ready.
     
     There are a few options that users can choose. For example, if users want 
     to make the bare overlay for a board equipped with `xc7z010clg400-1`, users can run
@@ -62,17 +61,7 @@ To use the make flow, the following steps have to be followed:
     To check the boards and devices supported, users can refer to the table 
     listed at the end of this README.
 
-5. ~~(Deprecated soon) If you want to generate the corresponding SDx platform for a specific board:~~
-	```shell
-    cp -rf PYNQ-derivative-overlays/sdx_platform <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/
-    cd <LOCAL_PYNQ_REPO>/boards/Pynq-Z1/sdx_platform
-    make
-    ```
-    ~~Additional options to build SDx platforms can be found using `make help`. 
-    Basically users are allowed to change the overlay name, 
-    the root of the overlay folder, the processor name, etc.~~
-
-6. (Optional) If you want to generate the corresponding Vitis platform for a specific board:
+5. (Optional) If you want to generate the corresponding Vitis platform for a specific board:
 	```shell
     cd <LOCAL_PYNQ_DERIV_REPO>/vitis_platform
     make
