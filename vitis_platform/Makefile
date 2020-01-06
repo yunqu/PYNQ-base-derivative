@@ -1,4 +1,4 @@
-DSA_PATH := ../ultra/ultra.dsa
+XSA_PATH := ../ultra/ultra.xsa
 OVERLAY := ultra
 BOARD := ZCU104
 PROC := psu_cortexa53
@@ -8,7 +8,7 @@ all: clean help platform test
 
 platform:
 	@mkdir -p ./$(BOARD)/platforms
-	xsct -sdx build_pfm.tcl $(DSA_PATH) $(OVERLAY) $(BOARD) $(PROC)
+	xsct -sdx build_pfm.tcl $(XSA_PATH) $(OVERLAY) $(BOARD) $(PROC)
 	@cp -rf ./$(BOARD)/output/$(OVERLAY)/export/$(OVERLAY) \
 	$(BOARD)/platforms/$(OVERLAY)
 	@echo "Successfully finished building vitis platform."
@@ -29,8 +29,8 @@ help:
 	@echo
 	@echo "arguments:"
 	@echo "----------"
-	@echo "DSA_PATH:   path to the dsa file"
-	@echo "            e.g., /home/usr/boards/ZCU104/ultra/ultra.dsa"
+	@echo "XSA_PATH:   path to the xsa file"
+	@echo "            e.g., /home/usr/boards/ZCU104/ultra/ultra.xsa"
 	@echo "OVERLAY:    name of the overlay (must be same as the platform)"
 	@echo "            e.g., ultra, bare, hdmi"
 	@echo "BOARD:      name of the board"
@@ -40,7 +40,7 @@ help:
 	@echo
 	@echo "current configuration:"
 	@echo "----------------------"
-	@echo "make DSA_PATH=$(DSA_PATH)"
+	@echo "make XSA_PATH=$(XSA_PATH)"
 	@echo "     OVERLAY=$(OVERLAY)"
 	@echo "     BOARD=$(BOARD)"
 	@echo "     PROC=$(PROC)"
@@ -57,7 +57,7 @@ test: cleantest
 	@echo
 
 cleantest:
-	cd test && make cleanall
+	cd test && make clean
 
 clean: cleantest
 	rm -rf ./$(BOARD)/platforms/$(OVERLAY) ./$(BOARD)/output/$(OVERLAY)

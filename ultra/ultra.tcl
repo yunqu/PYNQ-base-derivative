@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2019.1
+set scripts_vivado_version 2019.2
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -127,6 +127,7 @@ xilinx.com:ip:clk_wiz:6.0\
 xilinx.com:ip:zynq_ultra_ps_e:3.3\
 xilinx.com:ip:proc_sys_reset:5.0\
 xilinx.com:ip:xlconcat:2.1\
+xilinx.com:ip:xlconstant:1.1\
 "
 
    set list_ips_missing ""
@@ -196,31 +197,46 @@ proc create_root_design { parentCell } {
   # Create instance: clk_wiz_0, and set properties
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
-   CONFIG.CLKIN1_JITTER_PS {40.0} \
-   CONFIG.CLKOUT1_JITTER {79.447} \
-   CONFIG.CLKOUT1_PHASE_ERROR {72.668} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {250} \
-   CONFIG.CLKOUT2_JITTER {69.539} \
-   CONFIG.CLKOUT2_PHASE_ERROR {72.668} \
-   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {500} \
+   CONFIG.CLKIN1_JITTER_PS {100.0} \
+   CONFIG.CLKOUT1_JITTER {107.569} \
+   CONFIG.CLKOUT1_PHASE_ERROR {87.181} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {150} \
+   CONFIG.CLKOUT2_JITTER {94.863} \
+   CONFIG.CLKOUT2_PHASE_ERROR {87.181} \
+   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {300} \
    CONFIG.CLKOUT2_USED {true} \
-   CONFIG.CLKOUT3_JITTER {94.786} \
-   CONFIG.CLKOUT3_PHASE_ERROR {72.668} \
-   CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {100} \
+   CONFIG.CLKOUT3_JITTER {122.159} \
+   CONFIG.CLKOUT3_PHASE_ERROR {87.181} \
+   CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {75} \
    CONFIG.CLKOUT3_USED {true} \
-   CONFIG.CLKOUT4_JITTER {76.709} \
-   CONFIG.CLKOUT4_PHASE_ERROR {72.668} \
-   CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {300} \
+   CONFIG.CLKOUT4_JITTER {115.833} \
+   CONFIG.CLKOUT4_PHASE_ERROR {87.181} \
+   CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {100} \
    CONFIG.CLKOUT4_USED {true} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {6.000} \
-   CONFIG.MMCM_CLKIN1_PERIOD {4.000} \
-   CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {6.000} \
-   CONFIG.MMCM_CLKOUT1_DIVIDE {3} \
-   CONFIG.MMCM_CLKOUT2_DIVIDE {15} \
-   CONFIG.MMCM_CLKOUT3_DIVIDE {5} \
+   CONFIG.CLKOUT5_JITTER {102.087} \
+   CONFIG.CLKOUT5_PHASE_ERROR {87.181} \
+   CONFIG.CLKOUT5_REQUESTED_OUT_FREQ {200} \
+   CONFIG.CLKOUT5_USED {true} \
+   CONFIG.CLKOUT6_JITTER {90.075} \
+   CONFIG.CLKOUT6_PHASE_ERROR {87.181} \
+   CONFIG.CLKOUT6_REQUESTED_OUT_FREQ {400} \
+   CONFIG.CLKOUT6_USED {true} \
+   CONFIG.CLKOUT7_JITTER {83.769} \
+   CONFIG.CLKOUT7_PHASE_ERROR {87.181} \
+   CONFIG.CLKOUT7_REQUESTED_OUT_FREQ {600} \
+   CONFIG.CLKOUT7_USED {true} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {12.000} \
+   CONFIG.MMCM_CLKIN1_PERIOD {10.000} \
+   CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {8.000} \
+   CONFIG.MMCM_CLKOUT1_DIVIDE {4} \
+   CONFIG.MMCM_CLKOUT2_DIVIDE {16} \
+   CONFIG.MMCM_CLKOUT3_DIVIDE {12} \
+   CONFIG.MMCM_CLKOUT4_DIVIDE {6} \
+   CONFIG.MMCM_CLKOUT5_DIVIDE {3} \
+   CONFIG.MMCM_CLKOUT6_DIVIDE {2} \
    CONFIG.MMCM_DIVCLK_DIVIDE {1} \
-   CONFIG.NUM_OUT_CLKS {4} \
+   CONFIG.NUM_OUT_CLKS {7} \
    CONFIG.RESET_PORT {resetn} \
    CONFIG.RESET_TYPE {ACTIVE_LOW} \
  ] $clk_wiz_0
@@ -982,24 +998,24 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__CRL_APB__PCAP_CTRL__DIVISOR0 {8} \
    CONFIG.PSU__CRL_APB__PCAP_CTRL__FREQMHZ {200} \
    CONFIG.PSU__CRL_APB__PCAP_CTRL__SRCSEL {IOPLL} \
-   CONFIG.PSU__CRL_APB__PL0_REF_CTRL__ACT_FREQMHZ {249.997498} \
-   CONFIG.PSU__CRL_APB__PL0_REF_CTRL__DIVISOR0 {6} \
-   CONFIG.PSU__CRL_APB__PL0_REF_CTRL__DIVISOR1 {1} \
+   CONFIG.PSU__CRL_APB__PL0_REF_CTRL__ACT_FREQMHZ {99.999001} \
+   CONFIG.PSU__CRL_APB__PL0_REF_CTRL__DIVISOR0 {3} \
+   CONFIG.PSU__CRL_APB__PL0_REF_CTRL__DIVISOR1 {5} \
    CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ {100} \
    CONFIG.PSU__CRL_APB__PL0_REF_CTRL__SRCSEL {IOPLL} \
-   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ {249.997498} \
-   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR0 {6} \
-   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR1 {1} \
+   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ {99.999001} \
+   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR0 {3} \
+   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR1 {5} \
    CONFIG.PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ {100} \
    CONFIG.PSU__CRL_APB__PL1_REF_CTRL__SRCSEL {IOPLL} \
-   CONFIG.PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ {249.997498} \
-   CONFIG.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR0 {6} \
-   CONFIG.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR1 {1} \
+   CONFIG.PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ {99.999001} \
+   CONFIG.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR0 {3} \
+   CONFIG.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR1 {5} \
    CONFIG.PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ {100} \
    CONFIG.PSU__CRL_APB__PL2_REF_CTRL__SRCSEL {IOPLL} \
-   CONFIG.PSU__CRL_APB__PL3_REF_CTRL__ACT_FREQMHZ {249.997498} \
-   CONFIG.PSU__CRL_APB__PL3_REF_CTRL__DIVISOR0 {6} \
-   CONFIG.PSU__CRL_APB__PL3_REF_CTRL__DIVISOR1 {1} \
+   CONFIG.PSU__CRL_APB__PL3_REF_CTRL__ACT_FREQMHZ {99.999001} \
+   CONFIG.PSU__CRL_APB__PL3_REF_CTRL__DIVISOR0 {3} \
+   CONFIG.PSU__CRL_APB__PL3_REF_CTRL__DIVISOR1 {5} \
    CONFIG.PSU__CRL_APB__PL3_REF_CTRL__FREQMHZ {100} \
    CONFIG.PSU__CRL_APB__PL3_REF_CTRL__SRCSEL {IOPLL} \
    CONFIG.PSU__CRL_APB__QSPI_REF_CTRL__ACT_FREQMHZ {300} \
@@ -1707,17 +1723,26 @@ proc create_root_design { parentCell } {
    CONFIG.USB1_BOARD_INTERFACE {custom} \
  ] $ps_e_0
 
-  # Create instance: psr_clk0_250, and set properties
-  set psr_clk0_250 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk0_250 ]
+  # Create instance: psr_clk0_150, and set properties
+  set psr_clk0_150 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk0_150 ]
 
-  # Create instance: psr_clk1_500, and set properties
-  set psr_clk1_500 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk1_500 ]
+  # Create instance: psr_clk1_300, and set properties
+  set psr_clk1_300 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk1_300 ]
 
-  # Create instance: psr_clk2_100, and set properties
-  set psr_clk2_100 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk2_100 ]
+  # Create instance: psr_clk2_75, and set properties
+  set psr_clk2_75 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk2_75 ]
 
-  # Create instance: psr_clk3_300, and set properties
-  set psr_clk3_300 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk3_300 ]
+  # Create instance: psr_clk3_100, and set properties
+  set psr_clk3_100 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk3_100 ]
+
+  # Create instance: psr_clk4_200, and set properties
+  set psr_clk4_200 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk4_200 ]
+
+  # Create instance: psr_clk5_400, and set properties
+  set psr_clk5_400 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk5_400 ]
+
+  # Create instance: psr_clk6_600, and set properties
+  set psr_clk6_600 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 psr_clk6_600 ]
 
   # Create instance: xlconcat_0, and set properties
   set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
@@ -1731,16 +1756,26 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_PORTS {1} \
  ] $xlconcat_1
 
+  # Create instance: xlconstant_0, and set properties
+  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+  set_property -dict [ list \
+   CONFIG.CONST_VAL {0} \
+ ] $xlconstant_0
+
   # Create port connections
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins psr_clk0_250/slowest_sync_clk]
-  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins psr_clk1_500/slowest_sync_clk]
-  connect_bd_net -net clk_wiz_0_clk_out3 [get_bd_pins clk_wiz_0/clk_out3] [get_bd_pins psr_clk2_100/slowest_sync_clk]
-  connect_bd_net -net clk_wiz_0_clk_out4 [get_bd_pins clk_wiz_0/clk_out4] [get_bd_pins psr_clk3_300/slowest_sync_clk]
-  connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins psr_clk0_250/dcm_locked] [get_bd_pins psr_clk1_500/dcm_locked] [get_bd_pins psr_clk2_100/dcm_locked] [get_bd_pins psr_clk3_300/dcm_locked]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins psr_clk0_150/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins psr_clk1_300/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out3 [get_bd_pins clk_wiz_0/clk_out3] [get_bd_pins psr_clk2_75/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out4 [get_bd_pins clk_wiz_0/clk_out4] [get_bd_pins psr_clk3_100/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out5 [get_bd_pins clk_wiz_0/clk_out5] [get_bd_pins psr_clk4_200/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out6 [get_bd_pins clk_wiz_0/clk_out6] [get_bd_pins psr_clk5_400/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out7 [get_bd_pins clk_wiz_0/clk_out7] [get_bd_pins psr_clk6_600/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins psr_clk0_150/dcm_locked] [get_bd_pins psr_clk1_300/dcm_locked] [get_bd_pins psr_clk2_75/dcm_locked] [get_bd_pins psr_clk3_100/dcm_locked] [get_bd_pins psr_clk4_200/dcm_locked] [get_bd_pins psr_clk5_400/dcm_locked] [get_bd_pins psr_clk6_600/dcm_locked]
   connect_bd_net -net ps_e_0_pl_clk0 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins ps_e_0/pl_clk0]
-  connect_bd_net -net ps_e_0_pl_resetn0 [get_bd_pins clk_wiz_0/resetn] [get_bd_pins ps_e_0/pl_resetn0] [get_bd_pins psr_clk0_250/ext_reset_in] [get_bd_pins psr_clk1_500/ext_reset_in] [get_bd_pins psr_clk2_100/ext_reset_in] [get_bd_pins psr_clk3_300/ext_reset_in]
+  connect_bd_net -net ps_e_0_pl_resetn0 [get_bd_pins clk_wiz_0/resetn] [get_bd_pins ps_e_0/pl_resetn0] [get_bd_pins psr_clk0_150/ext_reset_in] [get_bd_pins psr_clk1_300/ext_reset_in] [get_bd_pins psr_clk2_75/ext_reset_in] [get_bd_pins psr_clk3_100/ext_reset_in] [get_bd_pins psr_clk4_200/ext_reset_in] [get_bd_pins psr_clk5_400/ext_reset_in] [get_bd_pins psr_clk6_600/ext_reset_in]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins ps_e_0/pl_ps_irq0] [get_bd_pins xlconcat_0/dout]
   connect_bd_net -net xlconcat_1_dout [get_bd_pins ps_e_0/pl_ps_irq1] [get_bd_pins xlconcat_1/dout]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins xlconcat_0/In0] [get_bd_pins xlconstant_0/dout]
 
   # Create address segments
 
@@ -1763,3 +1798,5 @@ proc create_root_design { parentCell } {
 ##################################################################
 
 create_root_design ""
+
+
