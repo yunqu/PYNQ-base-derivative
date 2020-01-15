@@ -1,0 +1,28 @@
+overlay_name := dpu
+design_name := dpu
+device := xczu3eg-sbva484-1-i
+
+all: block_design bitstream check_timing xsa
+	@echo
+	@tput setaf 2 ; echo "Built $(overlay_name) successfully!"; tput sgr0;
+	@echo
+
+block_design:
+	@sed -i "s/\(create_project \)\(.*\)\( -part \)\(.*\)"\
+	"/\1$(overlay_name) $(overlay_name)\3$(device)/" \
+	$(overlay_name).tcl; \
+	sed -i 's/^set design_name \(.*\)/set design_name $(design_name)/g' \
+	$(overlay_name).tcl; \
+	vivado -mode batch -source $(overlay_name).tcl -notrace
+
+bitstream:
+	vivado -mode batch -source build_bitstream.tcl -notrace
+
+check_timing:
+	vivado -mode batch -source check_timing.tcl -notrace
+
+xsa:
+	vivado -mode batch -source build_xsa.tcl -notrace
+
+clean:
+	rm -rf $(overlay_name) *.jou *.log NA
