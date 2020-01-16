@@ -60,7 +60,4 @@ cleantest:
 	cd test && make clean
 
 clean: cleantest
-	rm -rf ./$(BOARD)/platforms/$(OVERLAY) ./$(BOARD)/output/$(OVERLAY)
-
-cleanall: clean
 	rm -rf ./*/platforms ./*/output
