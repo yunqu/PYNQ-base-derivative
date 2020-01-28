@@ -1104,7 +1104,30 @@ proc create_root_design { parentCell } {
 
   # Create PFM attributes
   set_property PFM_NAME {xilinx.com:xd:bare:1.0} [get_files [current_bd_design].bd]
-
+  set_property PFM.CLOCK { \
+    FCLK_CLK0 {id "0" is_default "true" \
+		proc_sys_reset "rst_ps7_0_fclk0" status "fixed"} \
+    FCLK_CLK1 {id "1" is_default "false" \
+		proc_sys_reset "rst_ps7_0_fclk1" status "fixed"} \
+    FCLK_CLK2 {id "2" is_default "false" \
+		proc_sys_reset "rst_ps7_0_fclk2" status "fixed"} \
+    FCLK_CLK3 {id "3" is_default "false" \
+		proc_sys_reset "rst_ps7_0_fclk3" status "fixed"} \
+  } [get_bd_cells /ps7_0]
+  set_property PFM.AXI_PORT { \
+    M_AXI_GP0 {memport "M_AXI_GP"} \
+    M_AXI_GP1 {memport "M_AXI_GP"} \
+    S_AXI_ACP {memport "S_AXI_ACP"} \
+    S_AXI_HP0 {memport "S_AXI_HP" sptag "HP0" memory "ps7_0 HP0_DDR_LOWOCM"} \
+    S_AXI_HP1 {memport "S_AXI_HP" sptag "HP1" memory "ps7_0 HP1_DDR_LOWOCM"} \
+    S_AXI_HP2 {memport "S_AXI_HP" sptag "HP2" memory "ps7_0 HP2_DDR_LOWOCM"} \
+    S_AXI_HP3 {memport "S_AXI_HP" sptag "HP3" memory "ps7_0 HP3_DDR_LOWOCM"} \
+  } [get_bd_cells /ps7_0]
+  set intVar []
+  for {set i 1} {$i < 16} {incr i} {
+    lappend intVar In$i {}
+  }
+  set_property PFM.IRQ $intVar [get_bd_cells /xlconcat_0]
 
   validate_bd_design
   save_bd_design

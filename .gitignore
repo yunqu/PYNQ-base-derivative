@@ -17,6 +17,7 @@ thumbs.db
 # Logs and Databases
 ######################
 *.log
+*.jou
 
 # VIM Swap Files
 ######################

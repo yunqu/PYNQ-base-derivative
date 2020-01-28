@@ -1,11 +1,12 @@
 RM = rm -f
 RMDIR = rm -rf
 
-VITIS_PLATFORM = /home/yunq/Pynq-Python/PYNQ-derivative-overlays/vitis_platform/ZCU104/platforms/ultra/ultra.xpfm
+VITIS_PLATFORM := /home/yunq/Pynq-Python/PYNQ-derivative-overlays/vitis_platform/ZCU104/platforms/ultra/ultra.xpfm
+PORT := HP0
 VPP := $(XILINX_VITIS)/bin/v++
 MPSOC_CXX := g++
 VPP_COMMON_OPTS := -t hw --platform ${VITIS_PLATFORM} --save-temps
-VPP_LINK_OPTS := --config connectivity.cfg
+VPP_LINK_OPTS := --config connectivity-$(PORT).cfg
 
 SOURCES = $(wildcard ${SOURCEDIR}/*.cpp)
 

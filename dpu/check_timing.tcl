@@ -1,7 +1,6 @@
 set overlay_name "dpu"
-set design_name "dpu"
 
-set fd [open ./${overlay_name}/${overlay_name}.runs/impl_1/${design_name}_wrapper_timing_summary_routed.rpt r]
+set fd [open ./${overlay_name}/${overlay_name}.runs/impl_1/${overlay_name}_wrapper_timing_summary_routed.rpt r]
 set timing_met 0
 while { [gets $fd line] >= 0 } {
     if [string match {All user specified timing constraints are met.} $line]  { 
