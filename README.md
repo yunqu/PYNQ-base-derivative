@@ -22,24 +22,20 @@ platforms.
 To use the make flow, the following steps have to be followed:
 
 1. Make sure correct Vivado settings files are sourced. 
-2. Go inside your local PYNQ repository. If not downloaded yet, run
+2. Clone this repository:
 
 	```shell
-	git clone https://github.com/Xilinx/PYNQ.git <LOCAL_PYNQ_REPO>
-	```
+	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git <LOCAL_PYNQ_DERIV_REPO>
+	``` 
 
-	You can also switch to the branch you want to work from. 
-
-3. Clone this repository and copy the overlay folder into the local PYNQ repository.
+3. (Optional) If your desired overlay has a *starting point* as listed in the
+   end of this README, clone the PYNQ repository and copy the desired
+   overlay folder into the local PYNQ folder.
 
     ```shell
-	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git <LOCAL_PYNQ_DERIV_REPO>
+	git clone https://github.com/Xilinx/PYNQ.git <LOCAL_PYNQ_REPO>
     cp -rf <LOCAL_PYNQ_DERIV_REPO>/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/
     ```
-    
-    Different overlays may need to be built from different starting points. 
-    To change the starting point, users can refer to the table listed at the end of 
-    this README.
 
 4. Then you are ready to run the make process.
 
@@ -53,22 +49,29 @@ To use the make flow, the following steps have to be followed:
     you will have the `<OVERLAY_NAME>.xsa` file ready.
     
     There are a few options that users can choose. For example, if users want 
-    to make the bare overlay for a board equipped with `xc7z010clg400-1`, users can run
+    to make the overlay for another board, users can run
     
     ```shell
-    make device=xc7z010clg400-1
+    make BOARD=Pynq-Z2
     ```
-    To check the boards and devices supported, users can refer to the table 
+    To check the boards supported for each overlay, users can refer to the table 
     listed at the end of this README.
 
-5. (Optional) If you want to generate the corresponding Vitis platform for a specific board:
+5. (Optional) If you want to generate a Vitis platform for a specific board:
 	```shell
     cd <LOCAL_PYNQ_DERIV_REPO>/vitis_platform
-    make
+    make XSA_PATH=<XSA_PATH> BOARD=<BOARD_NAME>
     ```
-    Additional options to build platforms can be found using `make help`. 
-    Basically users are allowed to change the overlay name, 
-    the root of the overlay folder, the processor name, etc.
+	For example, to make the `dpu` Vitis platform for ZCU104:
+	```shell
+	cd <LOCAL_PYNQ_DERIV_REPO>/vitis_platform
+	make XSA_PATH=../dpu/dpu.xsa BOARD=ZCU104
+	```
+	If users want to test whether the generated platform is valid:
+	```shell
+	make test XSA_PATH=../dpu/dpu.xsa BOARD=ZCU104
+	```
+	Additional information can be found using `make help`. 
 
 
 ## Supported Overlays and Boards
@@ -80,16 +83,19 @@ The parent overlay is the original overlay that the derivative overlays
 depend on. If there is no parent overlay, you can build the corresponding 
 derivative overlay anywhere (not necessarily from the starting point folder).
 
-| Overlays        | Boards           | Devices               | Starting Point | Parent Overlay |
-|:--------------- |:-----------------|:----------------------|----------------|----------------|
-| hdmi            | Pynq-Z1          | xc7z020clg400-1       | Pynq-Z1        | base           |
-| hdmi            | Pynq-Z2          | xc7z020clg400-1       | Pynq-Z1        | base           |
-| hdmi            | Arty-Z7-10       | xc7z010clg400-1       | Pynq-Z1        | base           |
-| hdmi            | Arty-Z7-20       | xc7z020clg400-1       | Pynq-Z1        | base           |
-| bare            | Pynq-Z1          | xc7z020clg400-1       | -              | -              |
-| bare            | Pynq-Z2          | xc7z020clg400-1       | -              | -              |
-| bare            | Arty-Z7-10       | xc7z010clg400-1       | -              | -              |
-| bare            | Arty-Z7-20       | xc7z020clg400-1       | -              | -              |
-| ultra           | Ultra96          | xczu3eg-sbva484-1-i   | -              | -              |
-| ultra           | ZCU104           | xczu7ev-ffvc1156-2-e  | -              | -              |
-| ultra           | ZCU111           | xczu28dr-ffvg1517-2-e | -              | -              |
+| Overlays        | Boards           | Starting Point | Parent Overlay |
+|:--------------- |:-----------------|----------------|----------------|
+| hdmi            | Pynq-Z1          | Pynq-Z1        | base           |
+| hdmi            | Pynq-Z2          | Pynq-Z1        | base           |
+| hdmi            | Arty-Z7-10       | Pynq-Z1        | base           |
+| hdmi            | Arty-Z7-20       | Pynq-Z1        | base           |
+| bare            | Pynq-Z1          | -              | -              |
+| bare            | Pynq-Z2          | -              | -              |
+| bare            | Arty-Z7-10       | -              | -              |
+| bare            | Arty-Z7-20       | -              | -              |
+| ultra           | Ultra96          | -              | -              |
+| ultra           | ZCU104           | -              | -              |
+| ultra           | ZCU111           | -              | -              |
+| dpu             | Ultra96          | -              | -              |
+| dpu             | ZCU104           | -              | -              |
+| dpu             | ZCU111           | -              | -              |

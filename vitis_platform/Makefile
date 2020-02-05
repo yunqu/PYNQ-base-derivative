@@ -1,21 +1,33 @@
 XSA_PATH := ../ultra/ultra.xsa
-OVERLAY := ultra
 BOARD := ZCU104
-PROC := psu_cortexa53
+
+OVERLAY := $(shell basename $(XSA_PATH) | cut -d "." -f 1)
 PORT := $(eval P := $$(shell platforminfo -p $(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm | grep -m1 "Bus SP Tag: HP" | rev | cut -d " " -f 1 | rev ))$(P)
 TEST_DIR := $(CURDIR)/test
 
-all: clean help platform test
+Zynq7000 := Pynq-Z1 Pynq-Z2
+ZynqUltrascale := Ultra96 ZCU104 ZCU111
+ifneq ($(filter $(BOARD),$(Zynq7000)),)
+PROC = ps7_cortexa9
+endif
+ifneq ($(filter $(BOARD),$(ZynqUltrascale)),)
+PROC = psu_cortexa53
+endif
+ifndef PROC
+$(error Please set BOARD to one of the supported boards)
+endif
+
+all: clean help platform
 
 help:
 	@echo "usage: make [target]"
 	@echo
 	@echo "options:"
 	@echo "--------"
+	@echo "all:        clean, show help message, and make the platform."
 	@echo "help:       show help message."
-	@echo "all:        make the Vitis platform, and test it."
-	@echo "platform:   make the Vitis platform based on the input arguments."
-	@echo "test:       do a simple test after a given platform is made."
+	@echo "platform:   make the Vitis platform."
+	@echo "test:       take some time to do a test based on the platform."
 	@echo "cleantest:  clean the test folder."
 	@echo "clean:      clean test and Vitis platform for a given overlay."
 	@echo
@@ -23,19 +35,13 @@ help:
 	@echo "----------"
 	@echo "XSA_PATH:   path to the xsa file"
 	@echo "            e.g., /home/usr/boards/ZCU104/ultra/ultra.xsa"
-	@echo "OVERLAY:    name of the overlay (must be same as the platform)"
-	@echo "            e.g., ultra, bare, hdmi"
 	@echo "BOARD:      name of the board"
 	@echo "            e.g., ZCU104, Ultra96, ZCU111"
-	@echo "PROC:       name of the processor that can be targeted"
-	@echo "            e.g., psu_cortexa53, ps7_cortexa9"
 	@echo
 	@echo "current configuration:"
 	@echo "----------------------"
 	@echo "make XSA_PATH=$(XSA_PATH)"
-	@echo "     OVERLAY=$(OVERLAY)"
 	@echo "     BOARD=$(BOARD)"
-	@echo "     PROC=$(PROC)"
 	@echo
 
 platform:

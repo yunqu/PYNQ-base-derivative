@@ -1,5 +1,18 @@
 overlay_name := ultra
-device := xczu3eg-sbva484-1-i
+
+BOARD=Ultra96
+ifeq ($(BOARD),Ultra96)
+	device=xczu3eg-sbva484-1-i
+endif
+ifeq ($(BOARD),ZCU104)
+	device=xczu7ev-ffvc1156-2-e
+endif
+ifeq ($(BOARD),ZCU111)
+	device=xczu28dr-ffvg1517-2-e
+endif
+ifndef device
+$(error Please set BOARD to one of the supported boards)
+endif
 
 all: block_design bitstream check_timing
 	@echo

@@ -1,6 +1,22 @@
 overlay_name := hdmi
 base_path := ../base
-device := xc7z020clg400-1
+
+BOARD=Pynq-Z1
+ifeq ($(BOARD),Pynq-Z1)
+	device=xc7z020clg400-1
+endif
+ifeq ($(BOARD),Pynq-Z2)
+	device=xc7z020clg400-1
+endif
+ifeq ($(BOARD),Arty-Z7-10)
+	device=xc7z010clg400-1
+endif
+ifeq ($(BOARD),Arty-Z7-20)
+	device=xc7z020clg400-1
+endif
+ifndef device
+$(error Please set BOARD to one of the supported boards)
+endif
 
 all: base tcl xdc block_design bitstream check_timing
 	@echo
