@@ -53,6 +53,8 @@ delete_bd_objs [get_bd_intf_ports Vaux12]
 delete_bd_objs [get_bd_intf_ports Vaux13]
 delete_bd_objs [get_bd_intf_ports Vaux15]
 delete_bd_objs [get_bd_intf_ports Vp_Vn]
+delete_bd_objs [get_bd_intf_nets address_remap_0_M_AXI_out] [get_bd_cells axi_protocol_convert_0]
+delete_bd_objs [get_bd_cells address_remap_0]
 
 # remove trace analyzers
 delete_bd_objs [get_bd_intf_nets S01_AXI_1] [get_bd_intf_nets ps7_0_axi_periph_1_M02_AXI] [get_bd_intf_nets ps7_0_axi_periph_1_M03_AXI] [get_bd_nets concat_arduino_dout] [get_bd_nets trace_analyzer_arduino_s2mm_introut] [get_bd_cells trace_analyzer_arduino]
@@ -107,6 +109,11 @@ set_property PFM.CLOCK { \
     FCLK_CLK3 {id "3" is_default "false" \
 		proc_sys_reset "rst_ps7_0_fclk3" status "fixed" } \
     } [get_bd_cells /ps7_0]
+set gp0Val []
+for {set i 2} {$i < 16} {incr i} {
+    lappend gp0Val M[format %02d $i]_AXI {memport "M_AXI_GP" sptag "" memory ""}
+}
+set_property PFM.AXI_PORT $gp0Val [get_bd_cells /ps7_0_axi_periph]
 set_property PFM.AXI_PORT { \
     M_AXI_GP1 {memport "M_AXI_GP"} \
     S_AXI_ACP {memport "S_AXI_ACP"} \

@@ -2,7 +2,6 @@ XSA_PATH := ../ultra/ultra.xsa
 BOARD := ZCU104
 
 OVERLAY := $(shell basename $(XSA_PATH) | cut -d "." -f 1)
-PORT := $(eval P := $$(shell platforminfo -p $(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm | grep -m1 "Bus SP Tag: HP" | rev | cut -d " " -f 1 | rev ))$(P)
 TEST_DIR := $(CURDIR)/test
 
 Zynq7000 := Pynq-Z1 Pynq-Z2
@@ -17,7 +16,9 @@ ifndef PROC
 $(error Please set BOARD to one of the supported boards)
 endif
 
-all: clean help platform
+all: clean help $(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm
+
+.PHONY: clean cleantest help test
 
 help:
 	@echo "usage: make [target]"
@@ -44,7 +45,7 @@ help:
 	@echo "     BOARD=$(BOARD)"
 	@echo
 
-platform:
+$(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm:
 	mkdir -p ./$(BOARD)/platforms
 	xsct -sdx build_pfm.tcl $(XSA_PATH) $(OVERLAY) $(BOARD) $(PROC)
 	rm -rf ./$(BOARD)/platforms/$(OVERLAY)
@@ -53,12 +54,14 @@ platform:
 	@echo "Successfully finished building vitis platform."
 	@echo "Vitis platform stored in $(BOARD)/platforms/$(OVERLAY)."
 
-test: cleantest
+test: cleantest $(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm
 	@echo 'Building Test Project'
 	cd $(TEST_DIR) && \
 	make xclbin \
 	VITIS_PLATFORM=../$(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm \
-	PORT=$(PORT) && \
+	PORT=$$(platforminfo -p \
+		../$(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm | \
+		grep -m1 "Bus SP Tag: HP" | rev | cut -d " " -f 1 | rev) && \
 	cd ..
 	@echo 'Completed Building Test Project'
 	@echo

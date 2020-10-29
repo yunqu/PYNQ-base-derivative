@@ -27,7 +27,7 @@ base:
 	@if [ ! -d "./base" ]; then \
 		pushd $(base_path); \
 		if [ ! -d "./base" ]; then \
-			echo "Rebuilding base..."; make; \
+			echo "Rebuilding base..."; make hls_ip block_design; \
 		else \
 			echo "Skipping base..."; \
 		fi; \
