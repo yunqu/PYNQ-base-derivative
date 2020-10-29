@@ -26,34 +26,43 @@ To use the make flow, the following steps have to be followed:
 
 	```shell
 	git clone https://github.com/yunqu/PYNQ-derivative-overlays.git <LOCAL_PYNQ_DERIV_REPO>
-	``` 
+	```
 
 3. (Optional) If your desired overlay has a *starting point* as listed in the
-   end of this README, clone the PYNQ repository and copy the desired
-   overlay folder into the local PYNQ folder.
+   end of this README (i.e., your desired overlay is derived from a parent
+   overlay), clone the PYNQ repository and copy the desired overlay folder
+   into the local PYNQ folder.
 
     ```shell
 	git clone https://github.com/Xilinx/PYNQ.git <LOCAL_PYNQ_REPO>
-    cp -rf <LOCAL_PYNQ_DERIV_REPO>/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/
+   cp -rf <LOCAL_PYNQ_DERIV_REPO>/<OVERLAY_NAME> <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/
     ```
 
-4. Then you are ready to run the make process.
-
+4.  Then you are ready to create the derivate overlay. For overlays derived
+	from a parent overlay, run:
+	
 	```shell
     cd <LOCAL_PYNQ_REPO>/boards/<STARTING_POINT>/<OVERLAY_NAME>
 	make
 	```
 
-	It may take a few hours for the make process to finish. Once it is done,
-	you will have all the corresponding overlay files. Most importantly,
-    you will have the `<OVERLAY_NAME>.xsa` file ready.
-    
+	For overlays that do no require a parent overlay, run:
+
+	```shell
+    cd <LOCAL_PYNQ_DERIV_REPO>/<OVERLAY_NAME>
+	make
+	```
+	
+	Once it is done, you will have all the corresponding overlay files. 
+	Most importantly, you will have the `<OVERLAY_NAME>.xsa` file ready.
+
     There are a few options that users can choose. For example, if users want 
     to make the overlay for another board, users can run
     
     ```shell
     make BOARD=Pynq-Z2
     ```
+
     To check the boards supported for each overlay, users can refer to the table 
     listed at the end of this README.
 
@@ -61,7 +70,7 @@ To use the make flow, the following steps have to be followed:
 	```shell
     cd <LOCAL_PYNQ_DERIV_REPO>/vitis_platform
     make XSA_PATH=<XSA_PATH> BOARD=<BOARD_NAME>
-    ```
+   ```
 	For example, to make the `dpu` Vitis platform for ZCU104:
 	```shell
 	cd <LOCAL_PYNQ_DERIV_REPO>/vitis_platform
