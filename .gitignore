@@ -5,6 +5,10 @@
 *.hex
 *.dis
 *.exe
+*.bit
+*.hwh
+*.xsa
+
 
 # Packages 
 ############
