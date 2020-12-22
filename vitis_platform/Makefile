@@ -18,7 +18,7 @@ endif
 
 all: clean help $(BOARD)/platforms/$(OVERLAY)/$(OVERLAY).xpfm
 
-.PHONY: clean cleantest help test
+.PHONY: clean cleantest cleanall help test
 
 help:
 	@echo "usage: make [target]"
@@ -73,3 +73,7 @@ cleantest:
 
 clean: cleantest
 	rm -rf ./*/output
+
+cleanall: clean
+	rm -rf ./*/platforms
+

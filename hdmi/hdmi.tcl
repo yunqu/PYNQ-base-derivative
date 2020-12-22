@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2020.1
+set scripts_vivado_version 2020.2
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -1308,7 +1308,33 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_MIO_9_PULLUP {<Select>} \
    CONFIG.PCW_MIO_9_SLEW {<Select>} \
    CONFIG.PCW_MIO_PRIMITIVE {54} \
-   CONFIG.PCW_MIO_TREE_PERIPHERALS {unassigned#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#unassigned#Quad SPI Flash#unassigned#unassigned#unassigned#unassigned#unassigned#UART 0#UART 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#unassigned#SD 0#unassigned#unassigned#unassigned#unassigned#Enet 0#Enet 0} \
+   CONFIG.PCW_MIO_TREE_PERIPHERALS { \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#SD 0#SD \
+     0#SD 0#SD \
+     0#SD 0#SD \
+     0#USB 0#USB \
+     0#USB 0#USB \
+     0#USB 0#USB \
+     0#USB 0#USB \
+     0#USB 0#USB \
+     0#USB 0#USB \
+     0#unassigned#SD 0#unassigned#unassigned#unassigned#unassigned#Enet \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#unassigned#Quad SPI \
+     Flash#unassigned#unassigned#unassigned#unassigned#unassigned#UART 0#UART \
+     unassigned#Quad SPI \
+   } \
    CONFIG.PCW_MIO_TREE_SIGNALS {unassigned#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#unassigned#qspi_fbclk#unassigned#unassigned#unassigned#unassigned#unassigned#rx#tx#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#unassigned#cd#unassigned#unassigned#unassigned#unassigned#mdc#mdio} \
    CONFIG.PCW_M_AXI_GP0_ENABLE_STATIC_REMAP {0} \
    CONFIG.PCW_M_AXI_GP0_ID_WIDTH {12} \

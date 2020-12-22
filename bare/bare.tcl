@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2020.1
+set scripts_vivado_version 2020.2
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -242,6 +242,7 @@ proc create_root_design { parentCell } {
    CONFIG.MMCM_CLKOUT5_DIVIDE {24} \
    CONFIG.NUM_OUT_CLKS {6} \
    CONFIG.PRIM_IN_FREQ {100.000} \
+   CONFIG.RESET_PORT {resetn} \
    CONFIG.RESET_TYPE {ACTIVE_LOW} \
  ] $clk_wiz_0
 
@@ -563,7 +564,42 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_MIO_9_IOTYPE {LVCMOS 1.8V} \
    CONFIG.PCW_MIO_9_PULLUP {enabled} \
    CONFIG.PCW_MIO_9_SLEW {slow} \
-   CONFIG.PCW_MIO_TREE_PERIPHERALS {Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#USB Reset#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#SD 0#SD 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#I2C Reset#ENET Reset#UART 1#UART 1#I2C 0#I2C 0#Enet 0#Enet 0} \
+   CONFIG.PCW_MIO_TREE_PERIPHERALS { \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#Enet 0 \
+     0#I2C 0#Enet \
+     0#SD 0#I2C \
+     0#SD 0#I2C \
+     0#SD 0#I2C \
+     0#SD 0#I2C \
+     0#USB 0#SD \
+     0#USB 0#SD \
+     0#USB 0#SD \
+     0#USB 0#SD \
+     0#USB 0#SD \
+     0#USB 0#SD \
+     1#UART 1#I2C \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#Quad SPI \
+     Flash#USB Reset#Quad \
+     Quad SPI \
+     Reset#ENET Reset#UART \
+     SPI Flash#SD \
+     SPI Flash#SD \
+     SPI Flash#SD \
+     SPI Flash#SD \
+     SPI Flash#SD \
+     SPI Flash#SD \
+   } \
    CONFIG.PCW_MIO_TREE_SIGNALS {qspi1_ss_b#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#reset#qspi_fbclk#qspi1_sclk#qspi1_io[0]#qspi1_io[1]#qspi1_io[2]#qspi1_io[3]#cd#wp#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#reset#tx#rx#scl#sda#mdc#mdio} \
    CONFIG.PCW_NAND_GRP_D8_ENABLE {0} \
    CONFIG.PCW_NAND_PERIPHERAL_ENABLE {0} \
